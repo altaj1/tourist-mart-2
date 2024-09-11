@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  },
+  "engines": {
+  "node": ">=16.x"
+},
+"scripts": {
+  "build": "next build"
+}
+}

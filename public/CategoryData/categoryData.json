@@ -1,0 +1,374 @@
+
+[
+    {
+      "category": "Sea Beach",
+      "subcategories": [
+        {
+          "name": "Dresses",
+          "items": ["Men", "Women", "Kids"]
+        },
+        {
+          "name": "Hat",
+          "items": ["Men", "Women", "Kids"]
+        },
+        {
+          "name": "Shoes",
+          "items": ["Men", "Women", "Kids"]
+        },
+        {
+          "name": "Sunglasses",
+          "items": ["Men", "Women", "Kids"]
+        },
+        {
+          "name": "Hand Gloves",
+          "items": ["Men", "Women", "Kids"]
+        },
+        {
+          "name": "Gadgets & Gear",
+          "items": ["Camera", "Lens", "Power Bank", "Speaker", "Batteries Grip", "Microphone", "Memory Cards", "Drone Camera"]
+        },
+        {
+          "name": "Camping Accessories",
+          "items": ["Shelter & Sleeping Gear", "Cooking & Eating", "Clothing", "Personal Items", "Navigation & Safety", "Entertainment"]
+        },
+        {
+          "name": "Backpack",
+          "items": ["Hiking Backpacks", "Travel Backpacks", "Camping Backpacks", "Tactical/Military Backpacks", "Hydration Packs", "Camera Backpacks", "Wheeled Backpacks", "Ultralight Backpacks", "Child Carriers"]
+        }
+      ]
+    },
+    {
+      "category": "Mountain",
+      "subcategories": [
+        {
+          "name": "Dresses",
+          "items": ["Men", "Women", "Kids"]
+        },
+        {
+          "name": "Hat",
+          "items": ["Men", "Women", "Kids"]
+        },
+        {
+          "name": "Shoes",
+          "items": ["Men", "Women", "Kids"]
+        },
+        {
+          "name": "Sunglasses",
+          "items": ["Men", "Women", "Kids"]
+        },
+        {
+          "name": "Hand Gloves",
+          "items": ["Men", "Women", "Kids"]
+        },
+        {
+          "name": "Gadgets & Gear",
+          "items": ["Camera", "Lens", "Power Bank", "Speaker", "Batteries Grip", "Microphone", "Memory Cards", "Drone Camera"]
+        },
+        {
+          "name": "Camping Accessories",
+          "items": ["Shelter & Sleeping Gear", "Cooking & Eating", "Clothing", "Personal Items", "Navigation & Safety", "Entertainment"]
+        },
+        {
+          "name": "Backpack",
+          "items": ["Hiking Backpacks", "Travel Backpacks", "Camping Backpacks", "Tactical/Military Backpacks", "Hydration Packs", "Camera Backpacks", "Wheeled Backpacks", "Ultralight Backpacks", "Child Carriers"]
+        }
+      ]
+    },
+    {
+      "category": "Rain Forest",
+      "subcategories": [
+        {
+          "name": "Dresses",
+          "items": ["Men", "Women", "Kids"]
+        },
+        {
+          "name": "Hat",
+          "items": ["Men", "Women", "Kids"]
+        },
+        {
+          "name": "Shoes",
+          "items": ["Men", "Women", "Kids"]
+        },
+        {
+          "name": "Sunglasses",
+          "items": ["Men", "Women", "Kids"]
+        },
+        {
+          "name": "Hand Gloves",
+          "items": ["Men", "Women", "Kids"]
+        },
+        {
+          "name": "Gadgets & Gear",
+          "items": ["Camera", "Lens", "Power Bank", "Speaker", "Batteries Grip", "Microphone", "Memory Cards", "Drone Camera"]
+        },
+        {
+          "name": "Camping Accessories",
+          "items": ["Shelter & Sleeping Gear", "Cooking & Eating", "Clothing", "Personal Items", "Navigation & Safety", "Entertainment"]
+        },
+        {
+          "name": "Backpack",
+          "items": ["Hiking Backpacks", "Travel Backpacks", "Camping Backpacks", "Tactical/Military Backpacks", "Hydration Packs", "Camera Backpacks", "Wheeled Backpacks", "Ultralight Backpacks", "Child Carriers"]
+        }
+      ]
+    },
+    {
+      "category": "Mangrove Forest",
+      "subcategories": [
+        {
+          "name": "Dresses",
+          "items": ["Men", "Women", "Kids"]
+        },
+        {
+          "name": "Hat",
+          "items": ["Men", "Women", "Kids"]
+        },
+        {
+          "name": "Shoes",
+          "items": ["Men", "Women", "Kids"]
+        },
+        {
+          "name": "Sunglasses",
+          "items": ["Men", "Women", "Kids"]
+        },
+        {
+          "name": "Hand Gloves",
+          "items": ["Men", "Women", "Kids"]
+        },
+        {
+          "name": "Gadgets & Gear",
+          "items": ["Camera", "Lens", "Power Bank", "Speaker", "Batteries Grip", "Microphone", "Memory Cards", "Drone Camera"]
+        },
+        {
+          "name": "Camping Accessories",
+          "items": ["Shelter & Sleeping Gear", "Cooking & Eating", "Clothing", "Personal Items", "Navigation & Safety", "Entertainment"]
+        },
+        {
+          "name": "Backpack",
+          "items": ["Hiking Backpacks", "Travel Backpacks", "Camping Backpacks", "Tactical/Military Backpacks", "Hydration Packs", "Camera Backpacks", "Wheeled Backpacks", "Ultralight Backpacks", "Child Carriers"]
+        }
+      ]
+    },
+    {
+      "category": "Lake",
+      "subcategories": [
+        {
+          "name": "Dresses",
+          "items": ["Men", "Women", "Kids"]
+        },
+        {
+          "name": "Hat",
+          "items": ["Men", "Women", "Kids"]
+        },
+        {
+          "name": "Shoes",
+          "items": ["Men", "Women", "Kids"]
+        },
+        {
+          "name": "Sunglasses",
+          "items": ["Men", "Women", "Kids"]
+        },
+        {
+          "name": "Hand Gloves",
+          "items": ["Men", "Women", "Kids"]
+        },
+        {
+          "name": "Gadgets & Gear",
+          "items": ["Camera", "Lens", "Power Bank", "Speaker", "Batteries Grip", "Microphone", "Memory Cards", "Drone Camera"]
+        },
+        {
+          "name": "Camping Accessories",
+          "items": ["Shelter & Sleeping Gear", "Cooking & Eating", "Clothing", "Personal Items", "Navigation & Safety", "Entertainment"]
+        },
+        {
+          "name": "Backpack",
+          "items": ["Hiking Backpacks", "Travel Backpacks", "Camping Backpacks", "Tactical/Military Backpacks", "Hydration Packs", "Camera Backpacks", "Wheeled Backpacks", "Ultralight Backpacks", "Child Carriers"]
+        }
+      ]
+    },
+    {
+      "category": "Snowfall",
+      "subcategories": [
+        {
+          "name": "Dresses",
+          "items": ["Men", "Women", "Kids"]
+        },
+        {
+          "name": "Hat",
+          "items": ["Men", "Women", "Kids"]
+        },
+        {
+          "name": "Shoes",
+          "items": ["Men", "Women", "Kids"]
+        },
+        {
+          "name": "Sunglasses",
+          "items": ["Men", "Women", "Kids"]
+        },
+        {
+          "name": "Hand Gloves",
+          "items": ["Men", "Women", "Kids"]
+        },
+        {
+          "name": "Gadgets & Gear",
+          "items": ["Camera", "Lens", "Power Bank", "Speaker", "Batteries Grip", "Microphone", "Memory Cards", "Drone Camera"]
+        },
+        {
+          "name": "Camping Accessories",
+          "items": ["Shelter & Sleeping Gear", "Cooking & Eating", "Clothing", "Personal Items", "Navigation & Safety", "Entertainment"]
+        },
+        {
+          "name": "Backpack",
+          "items": ["Hiking Backpacks", "Travel Backpacks", "Camping Backpacks", "Tactical/Military Backpacks", "Hydration Packs", "Camera Backpacks", "Wheeled Backpacks", "Ultralight Backpacks", "Child Carriers"]
+        }
+      ]
+    },
+    {
+      "category": "Snow Mountain",
+      "subcategories": [
+        {
+          "name": "Dresses",
+          "items": ["Men", "Women", "Kids"]
+        },
+        {
+          "name": "Hat",
+          "items": ["Men", "Women", "Kids"]
+        },
+        {
+          "name": "Shoes",
+          "items": ["Men", "Women", "Kids"]
+        },
+        {
+          "name": "Sunglasses",
+          "items": ["Men", "Women", "Kids"]
+        },
+        {
+          "name": "Hand Gloves",
+          "items": ["Men", "Women", "Kids"]
+        },
+        {
+          "name": "Gadgets & Gear",
+          "items": ["Camera", "Lens", "Power Bank", "Speaker", "Batteries Grip", "Microphone", "Memory Cards", "Drone Camera"]
+        },
+        {
+          "name": "Camping Accessories",
+          "items": ["Shelter & Sleeping Gear", "Cooking & Eating", "Clothing", "Personal Items", "Navigation & Safety", "Entertainment"]
+        },
+        {
+          "name": "Backpack",
+          "items": ["Hiking Backpacks", "Travel Backpacks", "Camping Backpacks", "Tactical/Military Backpacks", "Hydration Packs", "Camera Backpacks", "Wheeled Backpacks", "Ultralight Backpacks", "Child Carriers"]
+        }
+      ]
+    },
+    {
+      "category": "Desert",
+      "subcategories": [
+        {
+          "name": "Dresses",
+          "items": ["Men", "Women", "Kids"]
+        },
+        {
+          "name": "Hat",
+          "items": ["Men", "Women", "Kids"]
+        },
+        {
+          "name": "Shoes",
+          "items": ["Men", "Women", "Kids"]
+        },
+        {
+          "name": "Sunglasses",
+          "items": ["Men", "Women", "Kids"]
+        },
+        {
+          "name": "Hand Gloves",
+          "items": ["Men", "Women", "Kids"]
+        },
+        {
+          "name": "Gadgets & Gear",
+          "items": ["Camera", "Lens", "Power Bank", "Speaker", "Batteries Grip", "Microphone", "Memory Cards", "Drone Camera"]
+        },
+        {
+          "name": "Camping Accessories",
+          "items": ["Shelter & Sleeping Gear", "Cooking & Eating", "Clothing", "Personal Items", "Navigation & Safety", "Entertainment"]
+        },
+        {
+          "name": "Backpack",
+          "items": ["Hiking Backpacks", "Travel Backpacks", "Camping Backpacks", "Tactical/Military Backpacks", "Hydration Packs", "Camera Backpacks", "Wheeled Backpacks", "Ultralight Backpacks", "Child Carriers"]
+        }
+      ]
+    },
+    {
+      "category": "Glacier",
+      "subcategories": [
+        {
+          "name": "Dresses",
+          "items": ["Men", "Women", "Kids"]
+        },
+        {
+          "name": "Hat",
+          "items": ["Men", "Women", "Kids"]
+        },
+        {
+          "name": "Shoes",
+          "items": ["Men", "Women", "Kids"]
+        },
+        {
+          "name": "Sunglasses",
+          "items": ["Men", "Women", "Kids"]
+        },
+        {
+          "name": "Hand Gloves",
+          "items": ["Men", "Women", "Kids"]
+        },
+        {
+          "name": "Gadgets & Gear",
+          "items": ["Camera", "Lens", "Power Bank", "Speaker", "Batteries Grip", "Microphone", "Memory Cards", "Drone Camera"]
+        },
+        {
+          "name": "Camping Accessories",
+          "items": ["Shelter & Sleeping Gear", "Cooking & Eating", "Clothing", "Personal Items", "Navigation & Safety", "Entertainment"]
+        },
+        {
+          "name": "Backpack",
+          "items": ["Hiking Backpacks", "Travel Backpacks", "Camping Backpacks", "Tactical/Military Backpacks", "Hydration Packs", "Camera Backpacks", "Wheeled Backpacks", "Ultralight Backpacks", "Child Carriers"]
+        }
+      ]
+    },
+    {
+        "category" : "Scuba Diving",
+        "subcategories":[
+          {
+            "name": "Dresses",
+            "items":["Men", "Women", "Kids"]
+          },
+          {
+            "name": "Hat",
+            "items":["Men", "Women", "Kids"]
+          },
+          {
+            "name": "Shous",
+            "items":["Men", "Women", "Kids"]
+          },
+          {
+            "name": "Sun Glass",
+            "items":["Men", "Women", "Kids"]
+          },
+          {
+            "name": "Hand Glovess",
+            "items":["Men", "Women", "Kids"]
+          },
+          {
+            "name": "Gadeg & Ger",
+            "items":["Camera", "Lence", "Power Bank", "Spker", "Batteries Grip", "Microphone", "Memory Cards", "Drone Cmera"]
+          },
+          {
+            "name": "Camping Accessories",
+            "items":["Shelter && Sleeping Gear", "Cooking & Eating", "Clothing", "Personal Items", "Navigation & Safety", "Entertainment" ]
+          },
+          {
+            "name": "Backpack",
+            "items":["Hiking Backpacks", "Travel Backpacks", "Camping Backpacks", "Tactical/Military Backpacks", "Hydration Packs", "Camera Backpacks", "Wheeled Backpacks", "Ultralight Backpacks", "Child Carriers"  ]
+          }
+        ]
+      }
+  ]
+  
