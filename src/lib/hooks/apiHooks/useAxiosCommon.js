@@ -7,3 +7,4 @@ const useAxiosCommon = () =>{
     return axiosCommon
 }
 export default useAxiosCommon
+// "build": "next build",
