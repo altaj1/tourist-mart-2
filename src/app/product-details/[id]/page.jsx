@@ -4,11 +4,13 @@ import useAxiosSecure, { axiosSecure } from '@/lib/hooks/apiHooks/useAxiosSecure
 import { productId } from '@/lib/store/features/cart/cartSlice';
 import { useQuery } from '@tanstack/react-query';
 import Link from 'next/link';
-import React from 'react';
-import { FaMinus, FaPlus } from 'react-icons/fa';
+import React, { useState } from 'react';
+import { FiMinus } from 'react-icons/fi';
+import { FaPlus } from "react-icons/fa6";
 import { useDispatch } from 'react-redux';
 const page = ({params}) => {
     // console.log(params.id)
+    const [buyProductCount, setBuyProductCount] = useState(1);
     const axiosS= useAxiosSecure()
     const dispatch = useDispatch()
     const handleAddToCart =(id)=>{
@@ -103,15 +105,18 @@ const page = ({params}) => {
           <hr />
           <p className="flex space-x-5 text-lg">
             <span className="p-2">Quantity</span>{" "}
-            <span className="flex items-center gap-2">
-              <span onClick={()=>handleQuantity("minus")} className="bg-[#FAFAFA] p-2 hover:bg-slate-400 hover:text-white">
-                <FaMinus />
-              </span>
-              {/* <span className="p-2">{quantity}</span>{" "} */}
-              <span onClick={()=>handleQuantity("plus")}  className="bg-[#DADADA] hover:bg-slate-400 hover:text-white p-2 text-opacity-70">
+            <div className="flex gap-2 items-center text-lg font-semibold">
+              <button
+                disabled={buyProductCount == 1}
+                onClick={() => setBuyProductCount(buyProductCount - 1)}
+              >
+                <FiMinus />
+              </button>
+              <p>{buyProductCount}</p>
+              <button onClick={() => setBuyProductCount(buyProductCount + 1)}>
                 <FaPlus />
-              </span>
-            </span>
+              </button>
+            </div>
           </p>
           <div className="space-x-10">
               <Link href={`/checkout/${_id}`} className="px-8 py-3 bg-[#8DBE3F] font-semibold hover:bg-[#5B8021] hover:text-white">Buy Now</Link>
