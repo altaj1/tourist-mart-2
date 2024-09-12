@@ -8,9 +8,12 @@ import React, { useState } from 'react';
 import { FiMinus } from 'react-icons/fi';
 import { FaPlus } from "react-icons/fa6";
 import { useDispatch } from 'react-redux';
+import { useSession } from 'next-auth/react';
 const page = ({params}) => {
     // console.log(params.id)
     const [buyProductCount, setBuyProductCount] = useState(1);
+    const [localStorageProduct, setlocalStorageProduct] = useState([]);
+    const session = useSession()
     const axiosS= useAxiosSecure()
     const dispatch = useDispatch()
     const handleAddToCart =(id)=>{
@@ -42,6 +45,23 @@ const page = ({params}) => {
         price,
       } = productDetails;
     console.log(productDetails)
+
+    console.log(session?.data?.user?.email)
+    const handleBuy = async()=>{
+      const  buyData = await {
+        ...productDetails,
+        addEmail:session?.data?.user?.email,
+        mainProductId: productDetails._id,
+        buyProductCount: buyProductCount,
+      };
+      delete buyData._id;  
+      localStorage.setItem("product", JSON.stringify([...localStorageProduct, buyData]))
+    }
+    useState(() => {
+      const storedProducts = localStorage.getItem("product");
+      const products = storedProducts ? JSON.parse(storedProducts) : [];
+      setlocalStorageProduct(products)
+    }, []);
     if (isLoading) {
         return <LoadingSpinner></LoadingSpinner>
     }
@@ -119,7 +139,8 @@ const page = ({params}) => {
             </div>
           </p>
           <div className="space-x-10">
-              <Link href={`/checkout/${_id}`} className="px-8 py-3 bg-[#8DBE3F] font-semibold hover:bg-[#5B8021] hover:text-white">Buy Now</Link>
+               <button onClick={handleBuy}> <Link href={`/checkout/${_id}`} className="px-8 py-3 bg-[#8DBE3F] font-semibold hover:bg-[#5B8021] hover:text-white">Buy Now</Link></button>
+             
               <button onClick={()=>handleAddToCart(_id)} className="px-6 py-3 bg-[#5B8021] font-semibold hover:bg-[#8DBE3F] hover:text-gray-800 text-white">Add to Cart</button>
           </div>
         </div>
