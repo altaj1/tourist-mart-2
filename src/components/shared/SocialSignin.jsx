@@ -1,4 +1,5 @@
 import { signIn } from 'next-auth/react';
+import { useSearchParams } from 'next/navigation';
 
 import { useRouter } from 'next/router';
 import React from 'react';
@@ -7,9 +8,9 @@ import { FcGoogle } from 'react-icons/fc';
 
 const SocialSignin = () => {
     
-    // const searchParams = useSearchParams()
+    const searchParams = useSearchParams()
   
-    // const path = searchParams.get('redirect')
+    const path = searchParams.get('redirect')
     
       const handleSocialLogin = (provider) => {
           const resp = signIn(provider, {
