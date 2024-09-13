@@ -4,10 +4,11 @@ import { NextResponse } from 'next/server'
 import { connectDB } from '@/lib/connectDB'
 const db = await connectDB();
 const usersCollection = db.collection("users")
- const tokenVerify =async (req) =>{
+
+const tokenVerify =async (req) =>{
     const cookieStore = cookies()
-    // const theme =  cookieStore.get('next-auth.session-token')
-    console.log(theme,"this is thim")
+    const theme =  cookieStore.get('next-auth.session-token')
+    // console.log(theme,"this is thim")
     if (!theme) {
         return NextResponse.json({ statusText: "Something Went Wrong" }, {status:401});
       }
@@ -21,12 +22,23 @@ const usersCollection = db.collection("users")
       }
 }
 
-export const verifyAdmin = async ()=>{
+   export const verifyUser = async ()=>{
    const {email} = await tokenVerify()
-    try {
+   console.log(email)
+        if (email) {
+          return  true
+        }else{
+            return NextResponse.json({ statusText: "Something Went Wrong" }, { status: 401 });
+        }
+}
+
+   export const verifyAdmin = async ()=>{
+   const {email} = await tokenVerify()
+   try {
         const resutl = await usersCollection.findOne({email})
         // console.log(resutl)
         if (resutl?.role === 'Admin') {
+            // console.log(email,"thsi is email")
             return true
         }else{
             return NextResponse.json({ statusText: "Something Went Wrong" }, { status: 401 });
@@ -36,6 +48,7 @@ export const verifyAdmin = async ()=>{
     }
     // console.log(email, "this is isveryfy")
 }
+
 export const verifyAgent = async ()=>{
    const {email} = await tokenVerify()
     try {

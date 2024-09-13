@@ -1,5 +1,8 @@
 "use client";
 import SelectOptions from "@/components/shareComponents/SelectOptions";
+import useAxiosSecure from "@/lib/hooks/apiHooks/useAxiosSecure";
+import { useMutation, useQuery } from "@tanstack/react-query";
+import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 
@@ -13,19 +16,29 @@ const page = ({ params }) => {
   const [selectedDistrict, setSelectedDistrict] = useState("");
   const [filteredUpazilas, setFilteredUpazilas] = useState([]);
   const [selectedUpazila, setSelectedUpazila] = useState("");
+  const session = useSession()
+  const axiosSecure = useAxiosSecure()
   const mainProductIdes = params.id.split("%2C");
-
+  console.log(session?.data?.user?.email)
   console.log(mainProductIdes, "this is product id");
+
   const matchingData = localStorageProducts.filter((item) =>
     mainProductIdes.includes(item.mainProductId)
   );
-  // for (let i = 0; i < localStorageProducts.length; i++) {
-  //    if (localStorageProducts[i].mainProductId == mainProductIdes[i]) {
-  //     console.log(localStorageProducts[i], "inseide for loop")
-  //    }
 
-  // }
-  // console.log(matchingData, "matchingData");
+  const {data: userData={}, refetch} = useQuery({
+    queryKey:["userData", session?.data?.user?.email],
+    queryFn: async()=>{
+        const {data} = await axiosSecure.get(`/checkout/api/update-user/${session?.data?.user?.email}`)
+        return data
+    }
+  })
+console.log(userData, "tis is user data")
+  const {mutateAsync} = useMutation({
+    mutationFn: async user =>{
+      const {data} = await axiosSecure.put(`/checkout/api/update-user/${session?.data?.user?.email}`, user)
+    }
+  })
 
   const handleLocation = (e) => {
     e.preventDefault();
@@ -33,8 +46,13 @@ const page = ({ params }) => {
       district: districts.find((district) => district.id === selectedDistrict)
         ?.name,
       upazila: upazilas.find((upazila) => upazila.id === selectedUpazila)?.name,
+      name:e.target.name.value,
+      mobile:e.target.mobile.value,
+      road:e.target.road.value,
+      home:e.target.homeNo.value,
     };
-    console.log(location);
+
+    mutateAsync(location)
   };
 
   useEffect(() => {
@@ -64,8 +82,16 @@ const page = ({ params }) => {
     setFilteredUpazilas(filteredUpazilas);
   }, [selectedDistrict, upazilas]);
   return (
-    <div>
-      <button
+    <div className="flex container mx-auto "> 
+     <div className="w-[60%]">
+     <div className="flex w-[]">
+        <div>
+          <p className="font-bold">Shipping address</p>
+          <p><span className="font-semibold">{userData?.name}</span> <span>{userData?.mobile}</span></p>
+        </div>
+        {/* modal */}
+     <div>
+     <button
         className="btn"
         onClick={() => document.getElementById("my_modal_3").showModal()}
       >
@@ -193,7 +219,12 @@ const page = ({ params }) => {
           </form>
         </div>
       </dialog>
+     </div>
+      </div>
+     </div>
+      <div className="w-[40%]">
       thsi is check out page
+      </div>
     </div>
   );
 };
