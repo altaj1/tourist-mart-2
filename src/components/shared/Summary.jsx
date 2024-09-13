@@ -4,8 +4,9 @@ import React from "react";
 import LoadingSpinner from "./LoadingSpinner";
 
 const Summary = ({ summary, isLoading }) => {
+  console.log(summary, "this is summary")
   const subtotal = summary?.reduce(
-    (acc, pd) => parseInt(acc) + parseInt(pd.price),
+    (acc, pd) => parseInt(acc) + parseInt(pd.price) * parseInt(pd.buyProductCount),
     0
   );
   const isDisabled = summary.length === 0;

@@ -5,6 +5,7 @@ import { NextResponse } from "next/server";
 
 export const PUT = async (request, {params})=>{
     const isveryfy = await  verifyUser()
+
     if (!isveryfy) {
         return NextResponse.json({massage:"Something Went Wrong"})
     }
@@ -17,8 +18,8 @@ export const PUT = async (request, {params})=>{
         const updatedoc = {
             $set:{...userData}
         }
-        // const respose = await userCollection.updateOne({email}, updatedoc)
-        // console.log(respose)
+        const respose = await userCollection.updateOne({email}, updatedoc)
+        console.log(respose)
         return NextResponse.json({massage:"data not found"})
     } catch (error) {
         return NextResponse.json({massage:"data not found"})
