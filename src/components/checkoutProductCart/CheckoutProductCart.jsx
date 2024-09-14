@@ -21,7 +21,7 @@ const CheckoutProductCart = ({product}) => {
           width={500}
           priority
           alt="product img"
-          className="h-32 w-40"
+          className="h-28 w-36"
         ></Image>
       </div>
         <div className="w-full opacity-90">
@@ -35,22 +35,13 @@ const CheckoutProductCart = ({product}) => {
           <div>
             <p className="text-lg font-semibold">BDT {currentPrice}</p>
             <p className="opacity-75">BDT {price}</p>
-            <p>Shipping: BDT 80</p>
+             
           </div>
           <div className="flex flex-col items-center ">
             <div className="flex gap-2 items-center text-lg font-semibold mr-10">
-              <button
-                // disabled={buyProductCount == 1}
-                // onClick={() => setBuyProductCount(buyProductCount - 1)}
-              >
-                <FiMinus />
-              </button>
-              <p>{buyProductCount}</p>
-              <button 
-            //   onClick={() => setBuyProductCount(buyProductCount + 1)}
-              >
-                <FaPlus />
-              </button>
+             
+              <p>Qut {buyProductCount}</p>
+             
             </div>
             
           </div>

@@ -1,4 +1,5 @@
 "use client";
+import CheckoutCouter from "@/components/checkoutProductCart/CheckoutCouter";
 import CheckoutProductCart from "@/components/checkoutProductCart/CheckoutProductCart";
 import SelectOptions from "@/components/shareComponents/SelectOptions";
 import useAxiosSecure from "@/lib/hooks/apiHooks/useAxiosSecure";
@@ -264,7 +265,9 @@ const page = ({ params }) => {
         }
         </div>
       </div>
-      <div className="w-[30%]">thsi is check out page</div>
+      <div className="w-[30%]">
+      <CheckoutCouter matchingData={matchingData}></CheckoutCouter>
+        </div>
     </div>
   );
 };
