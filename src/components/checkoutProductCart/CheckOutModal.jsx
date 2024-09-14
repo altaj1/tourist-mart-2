@@ -6,7 +6,7 @@ import { IoIosCloseCircleOutline } from 'react-icons/io';
 import Modal from "react-modal";
 import CheckoutForm from './CheckoutForm';
 const stripePromise = loadStripe(process.env.NEXT_PUBLIC_PAYMENT_KEY)
-const CheckOutModal = ({matchingData, mainProductIdes}) => {
+const CheckOutModal = ({matchingData, mainProductIdes, subtotal}) => {
 //    console.log(process.env.NEXT_PUBLIC_PAYMENT_KEY, "this is stripe key")
     return (
         <dialog id="my_modal_4" className="modal">
@@ -16,7 +16,7 @@ const CheckOutModal = ({matchingData, mainProductIdes}) => {
             <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
           </form>
        <Elements stripe={stripePromise}>
-       <CheckoutForm mainProductIdes={mainProductIdes} matchingData={matchingData}/>
+       <CheckoutForm mainProductIdes={mainProductIdes} matchingData={matchingData} subtotal={subtotal}/>
        </Elements>
         </div>
       </dialog>

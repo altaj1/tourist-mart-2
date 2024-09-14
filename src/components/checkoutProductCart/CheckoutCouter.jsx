@@ -40,7 +40,7 @@ const CheckoutCouter = ({matchingData, mainProductIdes}) => {
             Place order({matchingData.length})
           </button>
         </p>
-        <CheckOutModal matchingData={matchingData} mainProductIdes={mainProductIdes}></CheckOutModal>
+        <CheckOutModal matchingData={matchingData} mainProductIdes={mainProductIdes} subtotal={subtotal}></CheckOutModal>
       </div>
     );
 };

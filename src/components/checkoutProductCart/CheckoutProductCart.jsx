@@ -10,7 +10,7 @@ const CheckoutProductCart = ({product}) => {
     let today = new Date();
     let futureDate = new Date();
     futureDate.setDate(today.getDate() + 7);
-   console.log(product)
+  //  console.log(product)
     return (
       <div className='bg-white p-5 m-5'>
           <div className='flex gap-4'>
