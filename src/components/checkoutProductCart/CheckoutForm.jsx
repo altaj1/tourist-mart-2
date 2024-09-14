@@ -64,11 +64,12 @@ const session = useSession()
             productInfo : matchingData,
             transactionId: paymentIntent.id,
              date: new Date(),
-             paymentIntent_status: 'succeeded'
+             paymentIntent_status: 'succeeded',
+             buyerEmail:session?.data?.user?.email
          }
 
          try {
-            const { data } = await axiosSecure.put(`/payment-history/?mainProductIdes=${mainProductIdes}`, paymentInfo)
+            const { data } = await axiosSecure.put(`/checkout/api/payment-history/?mainProductIdes=${mainProductIdes}`, paymentInfo)
             console.log(data)
          } catch (error) {
             console.log(error)

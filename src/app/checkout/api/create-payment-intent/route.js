@@ -20,6 +20,5 @@ export const POST = async (request, {params})=>{
               enabled: true,
             },
           })
-          console.log(client_secret)
         return NextResponse.json({ clientSecret: client_secret })
 }
