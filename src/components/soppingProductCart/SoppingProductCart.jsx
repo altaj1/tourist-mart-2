@@ -22,7 +22,7 @@ const SoppingProductCart = ({ product, buyProduct, setBuyProduct,
       delete buyData._id;  
       setBuyProduct([...buyProduct,buyData]);
       // const storeSummary = localStorage.getItem('product')
-      // console.log(storeSummary)
+
       localStorage.setItem("product", JSON.stringify([...buyProduct, buyData]))
     }
      else {
