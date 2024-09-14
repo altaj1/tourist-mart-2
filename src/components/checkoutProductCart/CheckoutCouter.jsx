@@ -3,23 +3,13 @@ import Link from 'next/link';
 import React, { useState } from 'react';
 import CheckOutModal from './CheckOutModal';
 
-const CheckoutCouter = ({matchingData}) => {
-    const [isEditModalOpen, setIsEditModalOpen] = useState(false);
+const CheckoutCouter = ({matchingData, mainProductIdes}) => {
     const subtotal = matchingData?.reduce(
         (acc, pd) => parseInt(acc) + parseInt(pd.price) * parseInt(pd.buyProductCount),
         0
       );
       const isDisabled = false;
-      const [isOpen, setIsOpen] = useState(false);
-
-      
-      const closeModal = () => {
-        setIsOpen(false);
-      };
-      const openModal = () => {
-        setIsOpen(true);
-        console.log("kire vai hocche na keno");
-      };
+     
     return (
         <div className=" lg:pl-10 lg:pr-10 pl-5 mt-5 pr-5 space-y-2 shadow-lg bg-[#FFFFFF]  pb-10 pt-2 mr-5">
         <h1 className="text-2xl mt-4 font-semibold">Proceed to Pay</h1>
@@ -50,7 +40,7 @@ const CheckoutCouter = ({matchingData}) => {
             Place order({matchingData.length})
           </button>
         </p>
-        <CheckOutModal></CheckOutModal>
+        <CheckOutModal matchingData={matchingData} mainProductIdes={mainProductIdes}></CheckOutModal>
       </div>
     );
 };

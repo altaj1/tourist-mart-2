@@ -266,7 +266,7 @@ const page = ({ params }) => {
         </div>
       </div>
       <div className="w-[30%]">
-      <CheckoutCouter matchingData={matchingData}></CheckoutCouter>
+      <CheckoutCouter matchingData={matchingData} mainProductIdes={mainProductIdes}></CheckoutCouter>
         </div>
     </div>
   );

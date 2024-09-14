@@ -1,9 +1,9 @@
 import { CardElement } from '@stripe/react-stripe-js';
 import React from 'react';
 
-const CheckoutForm = () => {
+const CheckoutForm = ({mainProductIdes, matchingData}) => {
     const handelSubmit = async (event)=>{
-        
+
     }
     return (
         <form onClick={handelSubmit} className="space-y-5">
