@@ -14,7 +14,6 @@ const page = ({ params }) => {
   // location state
   const [districts, setDistricts] = useState([]);
   const [upazilas, setUpazilas] = useState([]);
-
   const [selectedDistrict, setSelectedDistrict] = useState("");
   const [filteredUpazilas, setFilteredUpazilas] = useState([]);
   const [selectedUpazila, setSelectedUpazila] = useState("");
@@ -27,7 +26,10 @@ const page = ({ params }) => {
   const matchingData = localStorageProducts.filter((item) =>
     mainProductIdes.includes(item.mainProductId)
   );
-
+  const subtotal = matchingData?.reduce(
+    (acc, pd) => parseInt(acc) + parseInt(pd.price) * parseInt(pd.buyProductCount),
+    0
+  );
   const { data: userData = {}, refetch } = useQuery({
     queryKey: ["userData", session?.data?.user?.email],
     queryFn: async () => {
@@ -266,7 +268,7 @@ const page = ({ params }) => {
         </div>
       </div>
       <div className="w-[30%]">
-      <CheckoutCouter matchingData={matchingData} mainProductIdes={mainProductIdes}></CheckoutCouter>
+      <CheckoutCouter subtotal={subtotal} matchingData={matchingData} mainProductIdes={mainProductIdes}></CheckoutCouter>
         </div>
     </div>
   );

@@ -3,11 +3,8 @@ import Link from 'next/link';
 import React, { useState } from 'react';
 import CheckOutModal from './CheckOutModal';
 
-const CheckoutCouter = ({matchingData, mainProductIdes}) => {
-    const subtotal = matchingData?.reduce(
-        (acc, pd) => parseInt(acc) + parseInt(pd.price) * parseInt(pd.buyProductCount),
-        0
-      );
+const CheckoutCouter = ({matchingData, mainProductIdes, subtotal}) => {
+   
       const isDisabled = false;
      
     return (

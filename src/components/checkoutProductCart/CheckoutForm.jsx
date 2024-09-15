@@ -65,7 +65,9 @@ const session = useSession()
             transactionId: paymentIntent.id,
              date: new Date(),
              paymentIntent_status: 'succeeded',
-             buyerEmail:session?.data?.user?.email
+             buyerEmail:session?.data?.user?.email,
+             subtotal:subtotal,
+            
          }
 
          try {
