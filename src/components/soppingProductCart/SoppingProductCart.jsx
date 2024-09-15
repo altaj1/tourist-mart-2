@@ -5,9 +5,7 @@ import { FaPlus } from "react-icons/fa6";
 import { FiMinus } from "react-icons/fi";
 import PreviewButton from "../shared/PreviewButton";
 const SoppingProductCart = ({ product, buyProduct, setBuyProduct,  
-  handelProductDelet, 
-
-  refetch,}) => {
+  handelProductDelet, refetch,}) => {
   const [summary, setSummary] = useState([]);
   const [buyProductCount, setBuyProductCount] = useState(1);
   const { coverImage, currentPrice, name, price, mainProductId, _id } = product;

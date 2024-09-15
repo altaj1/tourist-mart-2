@@ -28,7 +28,7 @@ const AdminMenu = () => {
         <>
         this is admin menu
             <MenuItem icon={FaUserCog} label='Manage Users' address='manage-users' />
-            <MenuItem icon={BsFillMotherboardFill} label='Manage Contests' address='ManageContest' />
+            {/* <MenuItem icon={BsFillMotherboardFill} label='Manage Contests' address='ManageContest' /> */}
         </>
     );
 };

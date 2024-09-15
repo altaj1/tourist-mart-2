@@ -25,7 +25,7 @@ const page = () => {
       email,
       password,
       redirect:true,
-      callbackUrl:path ? path : "/"
+      // callbackUrl:path ? path : "/"
     })
     console.log(resp, "this is user respose")
     

@@ -27,7 +27,7 @@ export const PUT =async (request, {params})=>{
      try {
         
         const insertRsult = await paymentsCollection.insertOne(productInfo)
-        if (acknowledged) {
+        if (insertRsult?.acknowledged) {
             for (const product of updateArray) {
                 const updateResult = await ProductsCollection.updateOne(
                   { _id: product._id },
@@ -35,11 +35,9 @@ export const PUT =async (request, {params})=>{
                 );
               }
         }
-        console.log(insertRsult)
+        return NextResponse.json({data:"data not found"})
      } catch (error) {
         return NextResponse.json({data:error})
      }
-    //  console.log("this is payment history", mainProductIdes, productInfo)
-// console.log(ids,"this is ides")
-    return NextResponse.json({data:"data not found"})
+    
 }

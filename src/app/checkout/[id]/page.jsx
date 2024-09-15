@@ -17,16 +17,14 @@ const page = ({ params }) => {
   const [selectedDistrict, setSelectedDistrict] = useState("");
   const [filteredUpazilas, setFilteredUpazilas] = useState([]);
   const [selectedUpazila, setSelectedUpazila] = useState("");
+  const [matchingProductData, setMatchingProductData] = useState('')  
   const session = useSession();
   const axiosSecure = useAxiosSecure();
   const mainProductIdes = params.id.split("%2C");
   // console.log(session?.data?.user?.email);
   // console.log(mainProductIdes, "this is product id");
 
-  const matchingData = localStorageProducts.filter((item) =>
-    mainProductIdes.includes(item.mainProductId)
-  );
-  const subtotal = matchingData?.reduce(
+  const subtotal = localStorageProducts?.reduce(
     (acc, pd) => parseInt(acc) + parseInt(pd.price) * parseInt(pd.buyProductCount),
     0
   );
@@ -39,10 +37,9 @@ const page = ({ params }) => {
       return data;
     },
   });
-  // console.log(userData, "tis is user data");
   const { mutateAsync } = useMutation({
     mutationFn: async (user) => {
-      console.log(user, "tis is user data")
+      // console.log(user, "tis is user data")
       const { data } = await axiosSecure.put(
         `/checkout/api/update-user/${session?.data?.user?.email}`,
         user
@@ -78,7 +75,7 @@ const page = ({ params }) => {
       .then((res) => res.json())
       .then((data) => setDistricts(data));
   }, []);
-
+ console.log(matchingProductData, "tis is  data line 84");
   // upazilas data load
   useEffect(() => {
     fetch("/upazilas.json")
@@ -93,6 +90,13 @@ const page = ({ params }) => {
     );
     setFilteredUpazilas(filteredUpazilas);
   }, [selectedDistrict, upazilas]);
+  useEffect(()=>{
+  
+    const matchingData = localStorageProducts.filter((item) =>
+      mainProductIdes.includes(item.mainProductId)
+    );
+    setMatchingProductData(matchingData)
+  },[localStorageProducts,])
   return (
     <div className="flex container mx-auto bg-[#F4F4F4] gap-5">
       <div className="w-[70%]">
@@ -263,12 +267,12 @@ const page = ({ params }) => {
         <div>
         {/* matchingData */}
         {
-          matchingData?.map((product)=>(<CheckoutProductCart product={product}></CheckoutProductCart> ) )
+          localStorageProducts?.map((product)=>(<CheckoutProductCart product={product}></CheckoutProductCart> ) )
         }
         </div>
       </div>
       <div className="w-[30%]">
-      <CheckoutCouter subtotal={subtotal} matchingData={matchingData} mainProductIdes={mainProductIdes}></CheckoutCouter>
+      <CheckoutCouter subtotal={subtotal} matchingData={localStorageProducts} mainProductIdes={mainProductIdes}></CheckoutCouter>
         </div>
     </div>
   );
