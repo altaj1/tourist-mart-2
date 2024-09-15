@@ -32,6 +32,7 @@ const page = () => {
   }
   console.log(session.data, "this is user response")
   return (
+    <Suspense fallback={<div>Loading...</div>}>
     <div className="relative h-[90vh]">
       <div className="absolute inset-0 bg-[url('/images/login.jpg')] bg-cover bg-center"></div>
       <div className="absolute inset-0 bg-black opacity-80"></div>
@@ -90,6 +91,7 @@ const page = () => {
         </div>
       </div>
     </div>
+    </Suspense>
   );
 };
 
