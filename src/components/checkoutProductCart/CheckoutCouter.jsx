@@ -3,7 +3,7 @@ import Link from 'next/link';
 import React, { useState } from 'react';
 import CheckOutModal from './CheckOutModal';
 
-const CheckoutCouter = ({matchingData, mainProductIdes, subtotal}) => {
+const CheckoutCouter = ({matchingData, mainProductIdes, subtotal, setMatchingProductData}) => {
    
       const isDisabled = false;
      
@@ -37,7 +37,7 @@ const CheckoutCouter = ({matchingData, mainProductIdes, subtotal}) => {
             Place order({matchingData.length})
           </button>
         </p>
-        <CheckOutModal matchingData={matchingData} mainProductIdes={mainProductIdes} subtotal={subtotal}></CheckOutModal>
+        <CheckOutModal matchingData={matchingData} mainProductIdes={mainProductIdes} subtotal={subtotal} setMatchingProductData={setMatchingProductData}></CheckOutModal>
       </div>
     );
 };

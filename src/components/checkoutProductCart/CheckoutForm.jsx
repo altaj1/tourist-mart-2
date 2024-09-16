@@ -3,8 +3,9 @@ import useAxiosSecure from "@/lib/hooks/apiHooks/useAxiosSecure";
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import { useSession } from "next-auth/react";
 import React, { useEffect, useState } from "react";
+import Swal from "sweetalert2";
 
-const CheckoutForm = ({ mainProductIdes, matchingData, subtotal}) => {
+const CheckoutForm = ({ mainProductIdes, matchingData, subtotal, setMatchingProductData}) => {
     const [cardError, setCardError] = useState('')
     const [processing, setProcessing] = useState(false)
     const [clientSecret, setClientSecret] = useState()
@@ -12,7 +13,13 @@ const CheckoutForm = ({ mainProductIdes, matchingData, subtotal}) => {
   const elements = useElements();
 const axiosSecure = useAxiosSecure()
 const session = useSession()
-// console.log(session)
+// console.log(matchingData)
+ const deletedId = matchingData.map(pd=>{
+  return {
+    cartId:pd.productCartId
+  }
+ })  
+
   const handelSubmit = async (event) => {
     event.preventDefault();
     if (!stripe || !elements) {
@@ -67,12 +74,30 @@ const session = useSession()
              paymentIntent_status: 'succeeded',
              buyerEmail:session?.data?.user?.email,
              subtotal:subtotal,
+             status:"Processing"
             
          }
 
          try {
             const { data } = await axiosSecure.put(`/checkout/api/payment-history/?mainProductIdes=${mainProductIdes}`, paymentInfo)
-            console.log(data)
+            // console.log(data, "this is /checkout/api/payment-history")
+            if (data?.data.acknowledged &&  data?.data.insertedId ) {
+              Swal.fire({
+                position: "top-end",
+                icon: "success",
+                title: "Your payment has been received",
+                showConfirmButton: false,
+                timer: 1500
+              });
+              setMatchingProductData([]);
+             localStorage.removeItem('product')
+             document.getElementById('my_modal_4').close();
+             const serializedIds = encodeURIComponent(JSON.stringify(deletedId))
+            
+            const { data } = await axiosSecure.delete(`/checkout/api/delete-cart-product/?cartProductIds=${serializedIds}`)
+           
+            }
+            
          } catch (error) {
             console.log(error)
          }

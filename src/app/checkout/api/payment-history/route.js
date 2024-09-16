@@ -25,17 +25,16 @@ export const PUT =async (request, {params})=>{
    
    
      try {
-        
         const insertRsult = await paymentsCollection.insertOne(productInfo)
         if (insertRsult?.acknowledged) {
             for (const product of updateArray) {
                 const updateResult = await ProductsCollection.updateOne(
                   { _id: product._id },
-                  { $set: { sellCount: product.sellCount } } // quantity আপডেট
+                  { $set: { sellCount: product.sellCount } }
                 );
               }
         }
-        return NextResponse.json({data:"data not found"})
+        return NextResponse.json({data:insertRsult})
      } catch (error) {
         return NextResponse.json({data:error})
      }

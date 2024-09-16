@@ -17,14 +17,14 @@ const page = ({ params }) => {
   const [selectedDistrict, setSelectedDistrict] = useState("");
   const [filteredUpazilas, setFilteredUpazilas] = useState([]);
   const [selectedUpazila, setSelectedUpazila] = useState("");
-  const [matchingProductData, setMatchingProductData] = useState('')  
+  const [matchingProductData, setMatchingProductData] = useState([])  
   const session = useSession();
   const axiosSecure = useAxiosSecure();
   const mainProductIdes = params.id.split("%2C");
   // console.log(session?.data?.user?.email);
   // console.log(mainProductIdes, "this is product id");
 
-  const subtotal = localStorageProducts?.reduce(
+  const subtotal = matchingProductData?.reduce(
     (acc, pd) => parseInt(acc) + parseInt(pd.price) * parseInt(pd.buyProductCount),
     0
   );
@@ -75,7 +75,6 @@ const page = ({ params }) => {
       .then((res) => res.json())
       .then((data) => setDistricts(data));
   }, []);
- console.log(matchingProductData, "tis is  data line 84");
   // upazilas data load
   useEffect(() => {
     fetch("/upazilas.json")
@@ -267,12 +266,12 @@ const page = ({ params }) => {
         <div>
         {/* matchingData */}
         {
-          localStorageProducts?.map((product)=>(<CheckoutProductCart product={product}></CheckoutProductCart> ) )
+          matchingProductData?.map((product)=>(<CheckoutProductCart product={product}></CheckoutProductCart> ) )
         }
         </div>
       </div>
       <div className="w-[30%]">
-      <CheckoutCouter subtotal={subtotal} matchingData={localStorageProducts} mainProductIdes={mainProductIdes}></CheckoutCouter>
+      <CheckoutCouter subtotal={subtotal} matchingData={matchingProductData} setMatchingProductData={setMatchingProductData} mainProductIdes={mainProductIdes}></CheckoutCouter>
         </div>
     </div>
   );
