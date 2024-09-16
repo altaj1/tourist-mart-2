@@ -6,8 +6,10 @@ import React from "react";
 import { BsCartPlus } from "react-icons/bs";
 import { useDispatch } from "react-redux";
 import PreviewButton from "./PreviewButton";
+import toast from "react-hot-toast";
 const ProductCard = ({ product }) => {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
+  const notify = () => toast.success('Add to sopping cart');
   const {
     coverImage,
     currentPrice,
@@ -20,8 +22,11 @@ const ProductCard = ({ product }) => {
     ratings,
   } = product;
   const handleAddToCart =(id)=>{
-    console.log(typeof id)
+    // console.log(typeof id)
     dispatch(productId(id))
+    notify()
+
+
   }
   return (
     <div className="relative hover:z-50 card hover:shadow-xl p-5  duration-100 transform hover:scale-y-105 ">

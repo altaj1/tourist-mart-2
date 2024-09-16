@@ -9,6 +9,7 @@ import LoadingSpinner from "../shared/LoadingSpinner";
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "@/lib/hooks/apiHooks/useAxiosSecure";
 import Link from "next/link";
+import toast from "react-hot-toast";
 
 const ShoppingCard = () => {
   const [userLoading, setUserLoading] = useState(true); // Initialize with true
@@ -16,20 +17,18 @@ const ShoppingCard = () => {
   const axiosSecure = useAxiosSecure();
   const router = useRouter();
   const session = useSession();
-
-  const { data: addToCartLen  , isLoading} = useQuery({
+  
+  const { data: addToCartLen  , isLoading, isSuccess} = useQuery({
     queryKey: ["addToCartLen", productId?.value, session?.data?.user],
     enabled: !!session?.data?.user.email,
     queryFn: async () => {
       const { data } = await axiosSecure.get(
         `/shopping-card/api/?mainProductId=${productId?.value}&addEmail=${session?.data?.user?.email}`
       );
-    
       return data;
     },
-    enabled: !!session?.data?.user?.email, 
   });
-
+  
   useEffect(() => {
     if (session?.data?.user) {
       setUserLoading(false);

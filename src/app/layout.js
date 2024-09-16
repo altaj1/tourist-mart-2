@@ -3,6 +3,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar/Navbar";
 import StoreProvider from "./Providers/StoreProvider";
 import QueryProvider from "./Providers/QueryProvider";
+import { Toaster } from "react-hot-toast";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,6 +21,7 @@ export default function RootLayout({ children }) {
        <StoreProvider>
         <Navbar></Navbar>
         {children}
+        <Toaster  />
         </StoreProvider>
        </QueryProvider>
         </div>
