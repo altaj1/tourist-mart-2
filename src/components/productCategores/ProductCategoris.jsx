@@ -14,7 +14,7 @@ const ProductCategories = ({ categoriesId }) => {
   const reduxData = useSelector((state) => state);
   const search = reduxData?.search?.value;
   const currentPage = reduxData?.pagination?.value;
-  console.log(reduxData?.pagination?.value, " redux text");
+  // console.log(reduxData?.pagination?.value, " redux text");
   const axiosCommon = useAxiosCommon();
   const [checkedCategory, setCheckedCategory] = useState(null);
   const [categoresProduct, SetCategoresProduct] = useState("");
