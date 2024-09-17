@@ -4,18 +4,25 @@ import useAxiosSecure, { axiosSecure } from '@/lib/hooks/apiHooks/useAxiosSecure
 import { productId } from '@/lib/store/features/cart/cartSlice';
 import { useQuery } from '@tanstack/react-query';
 import Link from 'next/link';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { FiMinus } from 'react-icons/fi';
 import { FaPlus } from "react-icons/fa6";
 import { useDispatch } from 'react-redux';
 import { useSession } from 'next-auth/react';
+import { useRouter } from 'next/navigation';
+
 const page = ({params}) => {
     // console.log(params.id)
     const [buyProductCount, setBuyProductCount] = useState(1);
     const [localStorageProduct, setlocalStorageProduct] = useState([]);
     const session = useSession()
-    const axiosS= useAxiosSecure()
+    const axiosSecure= useAxiosSecure()
     const dispatch = useDispatch()
+    const [userLoading, setUserLoading] = useState(true);
+
+    // const { data: session, status } = useSession();
+    const router = useRouter();
+  console.log(session)
     const handleAddToCart =(id)=>{
         console.log(typeof id)
         dispatch(productId(id))
@@ -57,11 +64,25 @@ const page = ({params}) => {
       delete buyData._id;  
       localStorage.setItem("product", JSON.stringify([...localStorageProduct, buyData]))
     }
+    
     useState(() => {
       const storedProducts = localStorage.getItem("product");
       const products = storedProducts ? JSON.parse(storedProducts) : [];
       setlocalStorageProduct(products)
     }, []);
+
+    useEffect(() => {
+      if (session?.status === "loading") {
+        return;
+      }
+      if (session?.status === "unauthenticated" || !session?.data.user) {
+        setUserLoading(false);
+        router.push("/login");
+      } else {
+        setUserLoading(true);
+      }
+    }, [session?.data?.user, userLoading]);
+
     if (isLoading) {
         return <LoadingSpinner></LoadingSpinner>
     }

@@ -1,7 +1,6 @@
 import { connectDB } from "@/lib/connectDB"
 import { verifyUser } from "@/lib/hooks/verifyToken/verifyToken"
 import { ObjectId } from "mongodb"
-import { trace } from "next/dist/trace"
 import { NextResponse } from "next/server"
 
 export const PUT =async (request, {params})=>{
@@ -22,8 +21,6 @@ export const PUT =async (request, {params})=>{
             sellCount:pd?.sellCount + 1 || 0,
         }
       })
-   
-   
      try {
         const insertRsult = await paymentsCollection.insertOne(productInfo)
         if (insertRsult?.acknowledged) {

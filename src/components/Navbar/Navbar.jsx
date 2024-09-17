@@ -12,17 +12,7 @@ import Name from "../shareComponents/Name";
 import ShoppingCard from "../shareComponents/ShoppingCard";
 const Navbar = () => {
   const session = useSession();
-  // console.log(session)
-  //   const getToken = async email =>{
-  //     const {data} = await axios.post(`${process.env.NEXT_PUBLIC_API_URL_SERVER}/jwt`, {email},{ withCredentials: true })
-  //     return data;
-  // }
 
-  // useEffect(()=>{
-  //   if (session?.data?.user?.email) {
-  //     getToken(session?.data?.user?.email)
-  //   }
-  // },[session?.data?.user?.email])
   return (
     <div className="bg-[#232F3E] text-yellow-50">
       {/* first navbar */}
@@ -40,8 +30,16 @@ const Navbar = () => {
             {/* sm */}
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content mt-2 z-[1] p-2 text-yellow-50 bg-[#232F3E] text-center space-y-1 rounded-b-md"
+              className="menu menu-sm dropdown-content mt-2 z-50 p-2 text-yellow-50 bg-[#232F3E] text-center space-y-1 rounded-b-md w-52 flex flex-col items-center"
             >
+            <div>
+            <Link
+            href={"/dashboard"}
+            className="text-4xl font-bold block xl:hidden lg:hidden md:hidden"
+          >
+            <IoPersonOutline />
+          </Link>
+            </div>
                <div className="block xl:hidden lg:hidden md:hidden">
             {session?.status === "authenticated" && (
               <div className="text-center block xl:hidden lg:hidden md:hidden">
