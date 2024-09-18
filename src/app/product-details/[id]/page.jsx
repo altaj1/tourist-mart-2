@@ -13,7 +13,7 @@ import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 
 const Page = ({params}) => {
-    // console.log(params.id)
+   
     const [buyProductCount, setBuyProductCount] = useState(1);
     const [localStorageProduct, setlocalStorageProduct] = useState([]);
     const session = useSession()
