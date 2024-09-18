@@ -6,8 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "serve": "cross-env NODE_ENV=development node server.js"
+    "lint": "next lint"
+ 
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.2.7",
