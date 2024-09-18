@@ -14,7 +14,7 @@ const useRole = () =>{
             console.log(data, "useROle")
             return data.resp.role;
         },
-        // enabled: !!session?.data?.user?.email,
+        enabled: !!session?.data?.user?.email,
     })
     
     return {role, isLoading}

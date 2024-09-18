@@ -8,6 +8,7 @@ import { useSession } from "next-auth/react";
 import { useMutation } from "@tanstack/react-query";
 import useAxiosSecure from "@/lib/hooks/apiHooks/useAxiosSecure";
 import Swal from "sweetalert2";
+import Image from "next/image";
 
 const AddProduct = () => {
   const session = useSession()
@@ -237,7 +238,7 @@ const AddProduct = () => {
                     <div className="lg:w-[50%] md:w-[50%]">
                       <h1>Product Items*</h1>
                       {selectedProduct?.items?.map((item, idx) => (
-                        <div className="space-x-1">
+                        <div key={idx} className="space-x-1">
                           <input
                             type="checkbox"
                             id={`checkbox-${idx}`}
@@ -277,7 +278,7 @@ const AddProduct = () => {
                           : "Product Items*"}
                       </h1>
                       {selectedProduct?.items?.map((item, idx) => (
-                        <div className="space-x-1">
+                        <div key={idx} className="space-x-1">
                           <input
                             type="checkbox"
                             id={`checkbox-${idx}`}
@@ -295,7 +296,7 @@ const AddProduct = () => {
                     <div className="lg:w-[50%] md:w-[50%]">
                       <h1>Product Size*</h1>
                       {selectedProduct?.size?.map((size, idx) => (
-                        <div className="space-x-1">
+                        <div key={idx} className="space-x-1">
                           <input
                             type="checkbox"
                             id={`checkbox-${idx}`}
@@ -331,7 +332,7 @@ const AddProduct = () => {
                     />
                     <div className="h-64 object-cover  rounded-lg  flex items-center justify-center">
                       {coverImagePreview ? (
-                        <img className=" h-64 w-64 object-cover rounded-lg" src={coverImagePreview} />
+                        <Image height={400} width={500} className=" h-64 w-64 object-cover rounded-lg" src={coverImagePreview} alt="asdf"/>
                       ) : (
                         <p className="text-6xl opacity-50 ">
                           <span>
@@ -353,8 +354,8 @@ const AddProduct = () => {
                       hidden
                     />
                     <div className="h-28 object-cover overflow-auto rounded-lg gap-2 flex items-center ">
-                      {groupImagePreview?.map(img=>(
-                        <img className=" object-cover h-28 w-28 rounded-lg" src={img} />
+                      {groupImagePreview?.map((img, idx)=>(
+                        <Image height={400} width={500} key={idx} alt="skjdhfask" className=" object-cover h-28 w-28 rounded-lg" src={img} />
                       ))}
                       <p className="text-3xl opacity-50 ml-2">
                           <span>

@@ -10,8 +10,9 @@ import { FaPlus } from "react-icons/fa6";
 import { useDispatch } from 'react-redux';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
+import Image from 'next/image';
 
-const page = ({params}) => {
+const Page = ({params}) => {
     // console.log(params.id)
     const [buyProductCount, setBuyProductCount] = useState(1);
     const [localStorageProduct, setlocalStorageProduct] = useState([]);
@@ -90,10 +91,10 @@ const page = ({params}) => {
         <div className="lg:flex md:flex mx-auto container p-5 gap-5">
         {/* cover image */}
         <div className="lg:w-[50%] md:w-[50%]">
-          <img src={coverImage} alt="" />
+          <Image height={400} width={600}   src={coverImage} alt="jaksj" />
          
           <div className='flex'>{
-            groupImage.map(img=>( <img className='h-32 rounded-lg' src={img} alt="" /> ))
+            groupImage.map((img, idx)=>( <Image height={400} width={600} className='h-32 rounded-lg'  alt="" key={idx} /> ))
             }</div>
         </div>
         {/* outher information */}
@@ -169,4 +170,4 @@ const page = ({params}) => {
     );
 };
 
-export default page;
+export default Page;

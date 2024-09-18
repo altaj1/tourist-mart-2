@@ -10,7 +10,7 @@ import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import Swal from "sweetalert2";
 
-const page = () => {
+const Page = () => {
   
   const [summary, setSummary] = useState([]);
   const [buyProduct, setBuyProduct] = useState([]);
@@ -78,7 +78,7 @@ const page = () => {
   return (
     <div className="bg-[#F4F4F4] min-h-svh">
        <div className="mx-auto container">
-      {/* thsi is shopping cart pages */}
+      {/* thsi is shopping cart Ps */}
       <div className="lg:flex md:flex gap-5">
         {/* Cart */}
         <div className="lg:w-[70%]">
@@ -104,4 +104,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

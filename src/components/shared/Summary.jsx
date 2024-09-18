@@ -3,7 +3,7 @@ import Link from "next/link";
 import React from "react";
 import LoadingSpinner from "./LoadingSpinner";
 
-const Summary = ({ summary, isLoading }) => {
+const Summary = ({ summary=[], isLoading= "" }) => {
   console.log(summary, "this is summary")
   const subtotal = summary?.reduce(
     (acc, pd) => parseInt(acc) + parseInt(pd.price) * parseInt(pd.buyProductCount),
@@ -19,8 +19,8 @@ const Summary = ({ summary, isLoading }) => {
     <div className="lg:w-[30%] md:w-[30%] lg:pl-10 lg:pr-10 pl-5 pr-5 space-y-2 shadow-lg bg-[#FFFFFF] mt-3 pb-10">
       <h1 className="text-2xl mt-4 font-semibold">Summary</h1>
       <div>
-        {summary?.map((pd) => (
-          <div className="mt-3">
+        {summary?.map((pd, idx) => (
+          <div key={idx} className="mt-3">
             <p className="flex justify-between items-center">
               <span>{pd?.name}</span>
               <span>{pd?.price} BDT</span>

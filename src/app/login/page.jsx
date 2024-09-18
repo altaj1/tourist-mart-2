@@ -12,13 +12,13 @@ const Page = () => {
   const router = useRouter();
   const session = useSession();
   
-  const searchParams = useSearchParams();
-  const path = searchParams?.get("redirect");
+  // const searchParams = useSearchParams();
+  // const path = searchParams?.get("redirect");
 
-  // Redirect to home if user is already logged in
-  if (session?.status === "authenticated") {
-    router.push(path ? path : "/");
-  }
+  // // Redirect to home if user is already logged in
+  // if (session?.status === "authenticated") {
+  //   router.push(path ? path : "/");
+  // }
 
   const handleLogin = async (event) => {
     event.preventDefault();
@@ -29,7 +29,7 @@ const Page = () => {
       email,
       password,
       redirect: true,
-      callbackUrl: path ? path : "/"
+      // callbackUrl: path ? path : "/"
     });
     
     console.log(resp, "this is user response");

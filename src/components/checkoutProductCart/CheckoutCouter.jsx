@@ -11,8 +11,8 @@ const CheckoutCouter = ({matchingData, mainProductIdes, subtotal, setMatchingPro
         <div className=" lg:pl-10 lg:pr-10 pl-5 mt-5 pr-5 space-y-2 shadow-lg bg-[#FFFFFF]  pb-10 pt-2 mr-5">
         <h1 className="text-2xl mt-4 font-semibold">Proceed to Pay</h1>
         <div>
-          {matchingData?.map((pd) => (
-            <div className="mt-3">
+          {matchingData?.map((pd, idx) => (
+            <div key={idx} className="mt-3">
               <p className="flex justify-between items-center">
                 <span>{pd?.name}</span>
                 <span>{pd?.price} BDT</span>

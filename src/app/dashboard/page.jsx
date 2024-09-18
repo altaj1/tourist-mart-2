@@ -19,7 +19,7 @@ const DashboardPage = () => {
     const [toggle, setToggle] = useState(true)
     const [userLoading, setUserLoading] = useState(true);
     const { data: session, status } = useSession();
-    const {role, isLoading} = useRole()
+    const {role ="", isLoading =false} = useRole()
     const router = useRouter();
        console.log(role, "this is role")
   //   console.log(role, isLoading)

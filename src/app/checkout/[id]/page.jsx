@@ -8,7 +8,7 @@ import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 
-const page = ({ params }) => {
+const Page = ({ params }) => {
   const [localStorageProducts, setlocalStorageProducts] = useState([]);
   const [productIds, setProductIds] = useState(null);
   // location state
@@ -266,7 +266,7 @@ const page = ({ params }) => {
         <div>
         {/* matchingData */}
         {
-          matchingProductData?.map((product)=>(<CheckoutProductCart product={product}></CheckoutProductCart> ) )
+          matchingProductData?.map((product, ind)=>(<CheckoutProductCart product={product} key={idx}></CheckoutProductCart> ) )
         }
         </div>
       </div>
@@ -277,4 +277,4 @@ const page = ({ params }) => {
   );
 };
 
-export default page;
+export default Page;
