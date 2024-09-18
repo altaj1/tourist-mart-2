@@ -11,7 +11,7 @@ import React, { useEffect, useState } from "react";
 const Page = ({ params }) => {
   const [localStorageProducts, setlocalStorageProducts] = useState([]);
   const [productIds, setProductIds] = useState(null);
-  // location state
+ 
   const [districts, setDistricts] = useState([]);
   const [upazilas, setUpazilas] = useState([]);
   const [selectedDistrict, setSelectedDistrict] = useState("");
@@ -95,7 +95,7 @@ const Page = ({ params }) => {
       mainProductIdes.includes(item.mainProductId)
     );
     setMatchingProductData(matchingData)
-  },[localStorageProducts,])
+  },[localStorageProducts])
   return (
     <div className="flex container mx-auto bg-[#F4F4F4] gap-5">
       <div className="w-[70%]">
