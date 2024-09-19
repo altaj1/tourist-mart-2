@@ -21,8 +21,7 @@ const Page = ({ params }) => {
   const session = useSession();
   const axiosSecure = useAxiosSecure();
   const mainProductIdes = params.id.split("%2C");
-  // console.log(session?.data?.user?.email);
-  // console.log(mainProductIdes, "this is product id");
+
 
   const subtotal = matchingProductData?.reduce(
     (acc, pd) => parseInt(acc) + parseInt(pd.price) * parseInt(pd.buyProductCount),
