@@ -12,12 +12,13 @@ const Page = () => {
   const router = useRouter();
   const session = useSession();
   
-  const searchParams = useSearchParams();
-  const path = searchParams?.get("redirect");
+  // const searchParams = useSearchParams();
+  // const path = searchParams?.get("redirect");
 
   // Redirect to home if user is already logged in
   if (session?.status === "authenticated") {
-    router.push(path ? path : "/");
+    // router.push(path ? path : "/");
+    router.push("/");
   }
 
   const handleLogin = async (event) => {

@@ -26,10 +26,10 @@ const AboutUs = () => {
               At Tourist Mart, we believe that exploring the world should be easy and accessible. We provide the best travel products and services to help you plan your next adventure with ease.
             </p>
             <p className="mb-4">
-              Our platform is designed to bring together travel enthusiasts, offering a wide range of options for destinations, experiences, and more. Whether you're looking for adventure, relaxation, or a mix of both, Tourist Mart has something for everyone.
+              Our platform is designed to bring together travel enthusiasts, offering a wide range of options for destinations, experiences, and more. Whether you re looking for adventure, relaxation, or a mix of both, Tourist Mart has something for everyone.
             </p>
             <p>
-              Join us on this journey and make your travel dreams come true. Let's explore the world together!
+              Join us on this journey and make your travel dreams come true. Let s explore the world together!
             </p>
           </div>
         </div>
