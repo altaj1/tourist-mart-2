@@ -11,7 +11,6 @@ import { useDispatch } from "react-redux";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
-
 const Page = ({ params }) => {
   const [buyProductCount, setBuyProductCount] = useState(1);
   const [localStorageProduct, setLocalStorageProduct] = useState([]);
@@ -71,6 +70,7 @@ const Page = ({ params }) => {
     if (session?.status === "loading") {
       return;
     }
+    
     if (session?.status === "unauthenticated" || !session?.data.user) {
       setUserLoading(false);
       router.push("/login");

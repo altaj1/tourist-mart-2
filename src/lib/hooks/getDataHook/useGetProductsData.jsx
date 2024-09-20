@@ -5,13 +5,14 @@ import { useSelector } from 'react-redux';
 
 const useGetProductsData = () => {
  
-    const {search} = useSelector((state)=>state)
+    const search = useSelector((state)=>state.search)
     const axiosCommon = useAxiosCommon()
+     console.log(search, "search")
     const {data:allProduct=[], isLoading} = useQuery({
         queryKey:["get all product", search.value],
         queryFn: async()=>{
             const {data} = await axiosCommon.get(`/allProductData/api/?searchText=${search.value}`)
-            // console.log(data)
+           
             return data
         }
     })

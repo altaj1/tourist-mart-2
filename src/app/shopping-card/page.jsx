@@ -1,7 +1,7 @@
 "use client";
+import BestSellProduct from "@/components/shared/BestSellProduct";
 import LoadingSpinner from "@/components/shared/LoadingSpinner";
 import Summary from "@/components/shared/Summary";
-
 import SoppingProductCart from "@/components/soppingProductCart/SoppingProductCart";
 import useAxiosSecure from "@/lib/hooks/apiHooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
@@ -11,7 +11,6 @@ import React, { useEffect, useState } from "react";
 import Swal from "sweetalert2";
 
 const Page = () => {
-  
   const [summary, setSummary] = useState([]);
   const [buyProduct, setBuyProduct] = useState([]);
   const [userLoading, setUserLoading] = useState(true);
@@ -96,8 +95,10 @@ const Page = () => {
         {/* Summary */}
         <Summary summary={summary}></Summary>
       </div>
-      {/* More to love */}
-      <div></div>
+      {/* More to product */}
+      <div>
+        <BestSellProduct></BestSellProduct>
+      </div>
     </div>
     </div>
    

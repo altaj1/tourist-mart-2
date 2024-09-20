@@ -13,7 +13,7 @@ import toast from "react-hot-toast";
 
 const ShoppingCard = () => {
   const [userLoading, setUserLoading] = useState(true); // Initialize with true
-  const { productId } = useSelector((state) => state);
+  const  productId  = useSelector((state) => state.productId);
   const axiosSecure = useAxiosSecure();
   const router = useRouter();
   const session = useSession();
