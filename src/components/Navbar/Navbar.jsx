@@ -63,8 +63,8 @@ const Navbar = () => {
               </button>
             )}
           </div>
-              <Link href={"/"} className=" font-medium">
-                Gift Cards
+              <Link href={"/aboutUs"} className=" font-medium">
+                About Us
               </Link>
               <Link href={"/"} className=" font-medium">
                 Tourist Mart Donates
@@ -91,10 +91,10 @@ const Navbar = () => {
           </div>
           <div className="flex flex-col md:flex-row  w-full hidden lg:block md:block gap-8">
             <Link
-              href={"/admin/dashboard"}
+              href={"/aboutUs"}
               className="text-lg font-medium mr-5"
             >
-              Gift Cards
+              About Us
             </Link>
             <Link href={"/"} className="text-lg font-medium mr-5">
               Tourist Mart Donates
