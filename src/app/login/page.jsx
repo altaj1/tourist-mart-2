@@ -16,10 +16,10 @@ const Page = () => {
   // const path = searchParams?.get("redirect");
 
   // Redirect to home if user is already logged in
-  if (session?.status === "authenticated") {
-    // router.push(path ? path : "/");
-    router.push("/");
-  }
+  // if (session?.status === "authenticated") {
+  //   // router.push(path ? path : "/");
+  //   router.push("/");
+  // }
 
   const handleLogin = async (event) => {
     event.preventDefault();
@@ -30,7 +30,7 @@ const Page = () => {
       email,
       password,
       redirect: true,
-      callbackUrl: path ? path : "/"
+      // callbackUrl: path ? path : "/"
     });
     
     console.log(resp, "this is user response");
