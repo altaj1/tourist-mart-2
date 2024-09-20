@@ -12,10 +12,10 @@ export const GET =async (request, {params})=>{
         const query = {
             name:{ $regex: String(searchText), $options: 'i' }
         }
-        const result = await productsCollection.find(query).toArray()
-        
+        const result = await productsCollection.find(query).sort({sellCount: -1}).toArray()
+        return NextResponse.json(result)
     } catch (error) {
-        
+        return NextResponse.json(error)
     }
-    return NextResponse.json("data not found")
+    
 }
