@@ -23,6 +23,7 @@ const AboutUs = () => {
               alt="cart image"
               width={'400'}
               height={'400'}
+              unoptimized={true} 
             />
       </div>
      
@@ -103,7 +104,7 @@ Our team is a diverse group of talented professionals united by a shared passion
           </div>
         </div>
       </div>
-      <Services></Services>
+      {/* <Services></Services> */}
     </div>
   </section>
   );
