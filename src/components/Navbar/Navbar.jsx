@@ -63,6 +63,9 @@ const Navbar = () => {
               </button>
             )}
           </div>
+          <Link href={"/"} className=" font-medium">
+                Home
+              </Link>
               <Link href={"/aboutUs"} className=" font-medium">
                 About Us
               </Link>
@@ -90,16 +93,19 @@ const Navbar = () => {
             </ul>
           </div>
           <div className="flex flex-col md:flex-row  w-full hidden lg:block md:block gap-8">
+          <Link href={"/"} className=" font-medium mr-5">
+                Home
+              </Link>
             <Link
               href={"/aboutUs"}
-              className="text-lg font-medium mr-5"
+              className=" font-medium mr-5"
             >
               About Us
             </Link>
-            <Link href={"/"} className="text-lg font-medium mr-5">
+            <Link href={"/"} className=" font-medium mr-5">
               Tourist Mart Donates
             </Link>
-            <Link href={"/"} className="text-lg font-medium mr-5">
+            <Link href={"/"} className=" font-medium mr-5">
               Become a supplier
             </Link>
             <div className="dropdown dropdown-hover mr-5 ">
