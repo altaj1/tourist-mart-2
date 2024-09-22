@@ -1,10 +1,11 @@
 import React from 'react';
 import { FcOnlineSupport } from "react-icons/fc";
+import { LuPackagePlus } from "react-icons/lu";
 // Define the array of objects for dynamic rendering
 const statistics = [
   {
     title: 'Total Users',
-    
+    icone: LuPackagePlus,
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Metus mi consectetur felis turpis vitae ligula.',
     value: '1,200',
@@ -13,7 +14,7 @@ const statistics = [
   },
   {
     title: '24x7 Support',
-    icone:"FcOnlineSupport",
+    icone:FcOnlineSupport,
     description:
       'Our team is available round-the-clock to assist you with any queries.',
     value: '$50,000',
@@ -25,7 +26,7 @@ const statistics = [
     description:
       'Your transactions are protected with advanced security encryption.',
     value: '5',
-    icone:"FcOnlineSupport",
+    icone:FcOnlineSupport,
     gradientFrom: 'yellow-500',
     gradientTo: 'orange-500',
   },
@@ -39,15 +40,17 @@ const Services = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {statistics.map((stat, index) => (
             <div
-             Icone={stat?.icone}
+            //  Icone={stat?.icone}
               key={index}
               className="bg-white rounded-lg shadow-md p-6 flex flex-col items-center justify-center"
             >
               <div
                 className={`flex items-center justify-center bg-gradient-to-r from-${stat.gradientFrom} to-${stat.gradientTo} rounded-full p-3 w-16 h-16`}
               >
-                <p>icone</p>
-                <Icone></Icone>
+                {
+                  stat.icone && <stat.icone/>
+                }
+                {/* <Icone></Icone> */}
               </div>
               <div className="mt-4 text-center">
                 <p className="text-lg font-semibold text-gray-800">
