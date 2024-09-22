@@ -1,20 +1,21 @@
 import React from 'react';
 import { FcOnlineSupport } from "react-icons/fc";
-import { LuPackagePlus } from "react-icons/lu";
+import { GiBoxUnpacking } from "react-icons/gi";
+import { RiSecurePaymentLine } from "react-icons/ri";
 // Define the array of objects for dynamic rendering
 const statistics = [
   {
-    title: 'Total Users',
-    icone: LuPackagePlus,
+    title: 'Product Packing',
+    icone: GiBoxUnpacking,
     description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Metus mi consectetur felis turpis vitae ligula.',
+      'Eco-friendly packaging ensures products arrive safely and sustainably.',
     value: '1,200',
     gradientFrom: 'blue-500',
     gradientTo: 'indigo-500',
   },
   {
     title: '24x7 Support',
-    icone:FcOnlineSupport,
+    icone: FcOnlineSupport,
     description:
       'Our team is available round-the-clock to assist you with any queries.',
     value: '$50,000',
@@ -26,7 +27,7 @@ const statistics = [
     description:
       'Your transactions are protected with advanced security encryption.',
     value: '5',
-    icone:FcOnlineSupport,
+    icone:RiSecurePaymentLine,
     gradientFrom: 'yellow-500',
     gradientTo: 'orange-500',
   },
@@ -34,35 +35,42 @@ const statistics = [
 
 const Services = () => {
   return (
-    <div className="bg-gradient-to-r from-pink-500 to-purple-500 p-8 font-sans">
+    <div className="  font-sans">
       <div className="container mx-auto">
-        <h2 className="text-4xl font-bold text-white mb-8">Statistics</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {statistics.map((stat, index) => (
+       <div className='text-center'>
+       <h2 className="text-4xl font-bold mb-8">Our Services</h2>
+        <p>We offer a range of services designed to provide you with the best experience. From secure packaging to round-the-clock support, discover our commitment to quality.</p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 ">
+       </div>
+         <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-5'>
+         {statistics.map((stat, index) => (
             <div
             //  Icone={stat?.icone}
               key={index}
-              className="bg-white rounded-lg shadow-md p-6 flex flex-col items-center justify-center"
+              className="bg-white rounded-lg shadow-md p-6 flex flex-col items-center justify-center gap-8"
             >
               <div
                 className={`flex items-center justify-center bg-gradient-to-r from-${stat.gradientFrom} to-${stat.gradientTo} rounded-full p-3 w-16 h-16`}
               >
-                {
+               <p className='text-6xl'>
+               {
                   stat.icone && <stat.icone/>
                 }
-                {/* <Icone></Icone> */}
+               
+               </p>
               </div>
-              <div className="mt-4 text-center">
+              <div className="mt-3 text-center">
                 <p className="text-lg font-semibold text-gray-800">
                   {stat.title}
                 </p>
                 <p className="text-sm text-gray-500 mt-2">
                   {stat.description}
                 </p>
-                <p className="text-gray-600 text-sm mt-2">{stat.value}</p>
+                
               </div>
             </div>
           ))}
+         </div>
         </div>
       </div>
     </div>
