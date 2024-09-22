@@ -265,7 +265,7 @@ const Page = ({ params }) => {
         <div>
         {/* matchingData */}
         {
-          matchingProductData?.map((product, ind)=>(<CheckoutProductCart product={product} key={idx}></CheckoutProductCart> ) )
+          matchingProductData?.map((product, idx)=>(<CheckoutProductCart product={product} key={idx}></CheckoutProductCart> ) )
         }
         </div>
       </div>
