@@ -45,7 +45,6 @@ const Services = () => {
          <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-5'>
          {statistics.map((stat, index) => (
             <div
-            //  Icone={stat?.icone}
               key={index}
               className="bg-white rounded-lg shadow-md p-6 flex flex-col items-center justify-center gap-8"
             >
