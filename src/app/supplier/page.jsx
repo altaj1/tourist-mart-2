@@ -7,12 +7,13 @@ import { MdAppRegistration } from "react-icons/md";
 import { FaShippingFast } from "react-icons/fa";
 import { MdOutlinePayments } from "react-icons/md";
 import { useSession } from 'next-auth/react';
-import SupplierFrom from '@/components/SupplierFrom/SupplierFrom';
-const Supplier = () => {
-const session = useSession()
-console.log(session?.data?.user)
+import { SiGooglemarketingplatform } from "react-icons/si";
+import SupplierForm from '@/components/SupplierFrom/SupplierForm';
+import Services from '@/components/Services/Services';
 
-  const features = [
+const Supplier = () => {
+
+  const statistics = [
     {
       icone:FcAreaChart,
       title: "Reach",
@@ -37,13 +38,17 @@ console.log(session?.data?.user)
       description: "Find new customers & grow more with advertising and our whole range of marketing tools",
     },
     {
+      icone:SiGooglemarketingplatform,
       title: "Support & Training",
       description: "Learn all about ecommerce for free and get help with seller support and Daraz",
     },
   ];
     return (
    <div>
-    <SupplierFrom></SupplierFrom>
+    <SupplierForm></SupplierForm>
+   <div className='mt-10'>
+   <Services statistics={statistics} title={"Why Sell on Tourist Mart"} description={"Join Tourist Mart to reach global travelers, boost your sales, and showcase unique travel experiences. Maximize your visibility with our user-friendly platform and seamless payment system."}></Services>
+   </div>
    </div>
     );
 };
