@@ -2,7 +2,6 @@ import React from 'react';
 import { FcOnlineSupport } from "react-icons/fc";
 import { GiBoxUnpacking } from "react-icons/gi";
 import { RiSecurePaymentLine } from "react-icons/ri";
-// Define the array of objects for dynamic rendering
 const statistics = [
   {
     title: 'Product Packing',
