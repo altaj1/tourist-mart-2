@@ -69,15 +69,15 @@ const Navbar = () => {
               <Link href={"/aboutUs"} className=" font-medium">
                 About Us
               </Link>
-              <Link href={"/"} className=" font-medium">
+              {/* <Link href={"/"} className=" font-medium">
                 Tourist Mart Donates
-              </Link>
-              <div className="dropdown dropdown-hover">
+              </Link> */}
+              {/* <div className="dropdown dropdown-hover">
                 <div tabIndex={0} role="button" className=" m-1">
                   Help & Support
                 </div>
-                {/* hover */}
-                {/* <ul
+               
+                <ul
               tabIndex={0}
               className="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow"
             >
@@ -87,8 +87,8 @@ const Navbar = () => {
               <li>
                 <a>Item 2</a>
               </li>
-            </ul> */}
-              </div>
+            </ul>
+              </div> */}
               {/* sm */}
             </ul>
           </div>
@@ -102,13 +102,13 @@ const Navbar = () => {
             >
               About Us
             </Link>
-            <Link href={"/"} className=" font-medium mr-5">
+            {/* <Link href={"/"} className=" font-medium mr-5">
               Tourist Mart Donates
-            </Link>
-            <Link href={"/"} className=" font-medium mr-5">
+            </Link> */}
+            <Link href={"/supplier"} className=" font-medium mr-5">
               Become a supplier
             </Link>
-            <div className="dropdown dropdown-hover mr-5 ">
+            {/* <div className="dropdown dropdown-hover mr-5 ">
               <div tabIndex={0} role="button" className=" m-1 flex items-end ">
                 <p>Help & Support</p>
                 <FaAngleDown />
@@ -124,7 +124,7 @@ const Navbar = () => {
                   <a>Item 2</a>
                 </li>
               </ul>
-            </div>
+            </div> */}
           </div>
         </div>
         <div className="lg:w-full md:w-[55%] mt-2 md:mt-0 lg:hidden md:hidden navbar-center">

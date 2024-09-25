@@ -30,7 +30,7 @@ const Page = () => {
       email,
       password,
       redirect: true,
-      // callbackUrl: path ? path : "/"
+      callbackUrl: "/"
     });
     
     console.log(resp, "this is user response");
