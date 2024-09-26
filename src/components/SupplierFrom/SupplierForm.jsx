@@ -45,7 +45,7 @@ const axiosSecure = useAxiosSecure();
               <form onSubmit={handleSubmit}>
                 <div className="mb-12">
                   <h3 className="text-gray-800 text-3xl font-extrabold">Become a supplier</h3>
-                  <p className="text-sm mt-4 text-gray-800">Don't have a login  <Link href="/login" className="text-blue-600 font-semibold hover:underline ml-1 whitespace-nowrap">Login here</Link></p>
+                  <p className="text-sm mt-4 text-gray-800">{`Don't have a login `} <Link href="/login" className="text-blue-600 font-semibold hover:underline ml-1 whitespace-nowrap">Login here</Link></p>
                 </div>
   
                 <div>
