@@ -21,7 +21,9 @@ export default function RootLayout({ children }) {
         <QueryProvider>
        <StoreProvider>
         <Navbar></Navbar>
+        <div className="min-h-[calc(100vh-450px)]"> 
         {children}
+        </div>
         <Footer></Footer>
         <Toaster  />
         </StoreProvider>
