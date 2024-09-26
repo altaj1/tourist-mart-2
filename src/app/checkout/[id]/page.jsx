@@ -2,7 +2,9 @@
 import CheckoutCouter from "@/components/checkoutProductCart/CheckoutCouter";
 import CheckoutProductCart from "@/components/checkoutProductCart/CheckoutProductCart";
 import SelectOptions from "@/components/shareComponents/SelectOptions";
+import LoadingSpinner from "@/components/shared/LoadingSpinner";
 import useAxiosSecure from "@/lib/hooks/apiHooks/useAxiosSecure";
+import useGetUser from "@/lib/hooks/getDataHook/useGetUser";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
@@ -27,15 +29,7 @@ const Page = ({ params }) => {
     (acc, pd) => parseInt(acc) + parseInt(pd.price) * parseInt(pd.buyProductCount),
     0
   );
-  const { data: userData = {}, refetch } = useQuery({
-    queryKey: ["userData", session?.data?.user?.email],
-    queryFn: async () => {
-      const { data } = await axiosSecure.get(
-        `/checkout/api/update-user/${session?.data?.user?.email}`
-      );
-      return data;
-    },
-  });
+  const {userData, refetch, isLoading} = useGetUser()
   const { mutateAsync } = useMutation({
     mutationFn: async (user) => {
       // console.log(user, "tis is user data")
@@ -45,6 +39,9 @@ const Page = ({ params }) => {
       );
       return data
     },
+    onSuccess:()=>{
+      document.getElementById("my_modal_3").close()
+    }
   });
 
   const handleLocation = async (e) => {
@@ -95,6 +92,9 @@ const Page = ({ params }) => {
     );
     setMatchingProductData(matchingData)
   },[localStorageProducts])
+  if (isLoading) {
+    return <LoadingSpinner></LoadingSpinner>
+  }
   return (
     <div className="flex container mx-auto bg-[#F4F4F4] gap-5">
       <div className="w-[70%]">
@@ -102,8 +102,8 @@ const Page = ({ params }) => {
           <div>
             <p className="font-bold">Shipping address</p>
             <p>
-              <span className="font-semibold">{userData?.name}</span>{" "}
-              <span>{userData?.mobile}</span>
+              <span className="font-semibold">Name: </span>{" "}{userData?.name}, 
+              <span className="font-semibold">  Phone: </span>{userData?.mobile}
             </p>
             <div className="flex gap-3">
               {" "}

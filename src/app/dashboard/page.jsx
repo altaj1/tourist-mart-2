@@ -13,6 +13,7 @@ import AgentMenu from '@/components/Menu/AgentMenu';
 
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
+import MenuItem from '@/components/Menu/MenuItem';
 
 const DashboardPage = () => {
     const [isActive, setActive] = useState(false)
@@ -85,11 +86,11 @@ const DashboardPage = () => {
   
               {/*  Menu Items */}
               <nav>
-              {/* <MenuItem
-                  label='Leader Board'
+              <MenuItem
+                  label='Manage My Account'
                   address='/dashboard'
                   icon={ MdOutlineLeaderboard}
-                /> */}
+                />
                 {/* {role === 'User' && <UserMenu/>} */}
   
                 
