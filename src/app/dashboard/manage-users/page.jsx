@@ -11,7 +11,7 @@ const ManageUsers = () => {
     const {data : {users} = [],  isLoading,refetch } = useQuery({
         queryKey:['contest'],
         queryFn: async () => {
-            const {data} = await axiosSecure.get(`/manage-users/api/get-all-users`)
+            const {data} = await axiosSecure.get(`/dashboard/manage-users/api/get-all-users`)
             // console.log(data)
             return data;
         }
@@ -24,7 +24,7 @@ const ManageUsers = () => {
         <>
         <div className='container mx-auto px-4 sm:px-8'>
          
-          <div className='py-8'>
+          <div className=''>
             <div className='-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto'>
               <div className='inline-block min-w-full shadow rounded-lg overflow-hidden'>
                 <table className='min-w-full leading-normal'>
