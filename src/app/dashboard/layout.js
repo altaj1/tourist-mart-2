@@ -39,89 +39,86 @@ export default function DashboardLayout({ children }) {
     }
   }, [session?.data?.user, userLoading]);
   return (
-    <div className=" flex mx-auto container">
-      <aside>
-        {" "}
-        <>
-          {/* Small Screen Navbar */}
-          <div className=" bg-[#131921] text-yellow-50 flex justify-between md:hidden">
-            <div>
-              <div className="block cursor-pointer p-4 font-bold">
-                <Name></Name>
-              </div>
-            </div>
-            <div className="flex">
-              {/* <ShoppingCard></ShoppingCard> */}
-              <button
-                onClick={handleToggle}
-                className="mobile-menu-button p-4 focus:outline-none "
-              >
-                <AiOutlineBars className="h-7 w-7" />
-              </button>
-            </div>
+    <div className="container mx-auto ">
+      {/* Small Screen Navbar */}
+      <div className=" bg-[#131921] text-yellow-50 flex justify-between md:hidden">
+        <div>
+          <div className="block cursor-pointer p-4 font-bold">
+            <Name></Name>
           </div>
-
-          {/* Sidebar */}
-          <div
-            className={`bg-gray-100   z-10  flex-col justify-between overflow-x-hidden  min-h-[calc(100vh-300px)]  w-64 space-y-6 px-2  py-4   inset-y-0 left-0 transform ${
-              isActive && "-translate-x-full"
-            }  md:translate-x-0  transition duration-200 ease-in-out`}
+        </div>
+        <div className="flex">
+          {/* <ShoppingCard></ShoppingCard> */}
+          <button
+            onClick={handleToggle}
+            className="mobile-menu-button p-4 focus:outline-none "
           >
+            <AiOutlineBars className="h-7 w-7" />
+          </button>
+        </div>
+      </div>
+
+      <div className="flex">
+        {/* Sidebar */}
+        <div
+          className={`bg-gray-100 fixed lg:sticky md:sticky md:mt-0  lg:mt-0 sm:h-[700px] mt-32 flex-col justify-between overflow-x-hidden    w-64 space-y-6   py-4   inset-y-0  transform ${
+            isActive && "-translate-x-full"
+          }  md:translate-x-0  transition duration-200 ease-in-out`}
+        >
+          <div>
             <div>
-              <div>
-                <div className="w-full hidden md:flex px-4 py-2 shadow-lg rounded-lg justify-center items-center bg-rose-100 mx-auto">
-                  <div className="flex items-center justify-center">
-                    {/* <Link  href={"/"}
+              <div className="w-full hidden md:flex px-4 py-2 shadow-lg rounded-lg justify-center items-center bg-rose-100 mx-auto">
+                <div className="flex items-center justify-center">
+                  {/* <Link  href={"/"}
             >
             <Name></Name>
             </Link> */}
-                    {/* <h1 className="text-2xl font-bold lg:block hidden inline-block  text-transparent bg-clip-text bg-gradient-to-r from-indigo-900 from-10% via-sky-500 via-30% to-emerald-500 to-90% ...">BrainStrom</h1> */}
-                  </div>
+                  {/* <h1 className="text-2xl font-bold lg:block hidden inline-block  text-transparent bg-clip-text bg-gradient-to-r from-indigo-900 from-10% via-sky-500 via-30% to-emerald-500 to-90% ...">BrainStrom</h1> */}
                 </div>
-              </div>
-
-              {/* Nav Items */}
-              <div className="flex flex-col justify-between flex-1 mt-6">
-                {/*  Menu Items */}
-                <nav>
-                  <MenuItem
-                    label="Manage My Account"
-                    address="/dashboard"
-                    icon={MdOutlineLeaderboard}
-                  />
-                  {/* {role === 'User' && <UserMenu/>} */}
-
-                  {role === "Agent" && <AgentMenu></AgentMenu>}
-
-                  {role === "Admin" && <AdminMenu />}
-                </nav>
               </div>
             </div>
 
-            <div>
-              <hr />
+            {/* Nav Items */}
+            <div className="flex flex-col justify-between flex-1 mt-6">
+              {/*  Menu Items */}
+              <nav>
+                <MenuItem
+                  label="Manage My Account"
+                  address="/dashboard"
+                  icon={MdOutlineLeaderboard}
+                />
+                {/* {role === 'User' && <UserMenu/>} */}
 
-              {/* Profile Menu */}
+                {role === "Agent" && <AgentMenu></AgentMenu>}
 
-              {/* <MenuItem
+                {role === "Admin" && <AdminMenu />}
+              </nav>
+            </div>
+          </div>
+
+          <div>
+            <hr />
+
+            {/* Profile Menu */}
+
+            {/* <MenuItem
               label='Home'
               address='/'
               icon={FcHome}
             /> */}
 
-              <button
-                onClick={() => signOut()}
-                className="flex w-full items-center px-4 py-2 mt-5 text-gray-600 hover:bg-gray-300   hover:text-gray-700 transition-colors duration-300 transform"
-              >
-                <GrLogout className="w-5 h-5" />
+            <button
+              onClick={() => signOut()}
+              className="flex w-full items-center px-4 py-2 mt-5 text-gray-600 hover:bg-gray-300   hover:text-gray-700 transition-colors duration-300 transform"
+            >
+              <GrLogout className="w-5 h-5" />
 
-                <span className="mx-4 font-medium">Logout</span>
-              </button>
-            </div>
+              <span className="mx-4 font-medium">Logout</span>
+            </button>
           </div>
-        </>
-      </aside>
-      <main className="w-[80%]">{children}</main>
+        </div>
+        <main className="overflow-auto  w-full">{children}</main>
+      </div>
     </div>
   );
 }
