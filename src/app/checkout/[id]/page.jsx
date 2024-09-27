@@ -15,7 +15,6 @@ const Page = ({ params }) => {
     0
   );
   const {userData, refetch, isLoading} = useGetUser()
- 
 
   useEffect(() => {
     const storedProducts = localStorage.getItem("product");

@@ -1,8 +1,17 @@
+"use client"
 import React from 'react';
 import { UpdateUserModal } from '../UpdateUserModal/UpdateUserModal';
+import useGetUser from '@/lib/hooks/getDataHook/useGetUser';
+import { useSession } from 'next-auth/react';
+import LoadingSpinner from '../shared/LoadingSpinner';
 
 const AccountManagement = () => {
-
+  const session = useSession()
+  // console.log(session, "this is session")
+const{userData, refetch, isLoading} = useGetUser()
+if (isLoading) {
+  return <LoadingSpinner></LoadingSpinner>
+}
   return (
     <div className=" p-8 font-[sans-serif]  mx-auto rounded-lg shadow-lg">
        <h2 className="text-2xl font-bold text-gray-700 mb-4">Manage My Account</h2>
@@ -12,11 +21,11 @@ const AccountManagement = () => {
        
        <div className="flex justify-between items-center mb-6">
          <h3 className="text-lg font-semibold text-gray-600">Personal Profile</h3>
-         <button className="text-blue-600 font-semibold">EDIT</button>
+        
        </div>
        <div className="text-gray-800">
-         <p>Username: <span className="font-semibold">altaj1019</span></p>
-         <p>Email: <span className="font-semibold">al*******@gmail.com</span></p>
+         <p>Username: <span className="font-semibold">{userData?.name}</span></p>
+         <p>Email: <span className="font-semibold">{userData?.email}</span></p>
        </div>
      </div>
 
@@ -32,7 +41,7 @@ const AccountManagement = () => {
             >
               Change
             </button>
-           <UpdateUserModal></UpdateUserModal>
+           <UpdateUserModal ></UpdateUserModal>
 
           </div>
        </div>
@@ -41,10 +50,10 @@ const AccountManagement = () => {
        <div className="mb-6 w-[40%]">
          <h4 className="text-md font-semibold text-gray-600">DEFAULT SHIPPING ADDRESS</h4>
          <div className="text-gray-800 mt-2">
-           <p>Al Taj</p>
-           <p>180/B</p>
-           <p>Dhaka - Dhaka - South - Banasree</p>
-           <p>(+880) 1719754585</p>
+           <p>{userData?.name}</p>
+           <p>{userData?.road}</p>
+           <p>{userData?.district} - {userData?.upazila}</p>
+           <p>{userData?.mobile}</p>
          </div>
        </div>
 
@@ -52,10 +61,10 @@ const AccountManagement = () => {
        <div className='w-[40%]'>
          <h4 className="text-md font-semibold text-gray-600">DEFAULT BILLING ADDRESS</h4>
          <div className="text-gray-800 mt-2">
-           <p>Al Taj</p>
-           <p>180/B</p>
-           <p>Dhaka - Dhaka - South - Banasree</p>
-           <p>(+880) 1719754585</p>
+           <p>{userData?.name}</p>
+           <p>{userData?.road}</p>
+           <p>{userData?.district} - {userData?.upazila}</p>
+           <p>{userData?.mobile}</p>
          </div>
        </div>
      </div>

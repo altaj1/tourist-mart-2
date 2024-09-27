@@ -10,8 +10,7 @@ const useRole = () =>{
         queryKey:['role'],
         
         queryFn: async()=>{
-            const {data} = await axiosSecure(`/manage-users/api/${session?.data?.user?.email}`)
-            console.log(data, "useROle")
+            const {data} = await axiosSecure(`/dashboard/manage-users/api/${session?.data?.user?.email}`)
             return data.resp.role;
         },
         enabled: !!session?.data?.user?.email,

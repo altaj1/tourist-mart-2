@@ -14,6 +14,7 @@ import AgentMenu from "@/components/Menu/AgentMenu";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import MenuItem from "@/components/Menu/MenuItem";
+import LoadingSpinner from "@/components/shared/LoadingSpinner";
 export default function DashboardLayout({ children }) {
   const [isActive, setActive] = useState(false);
   const [toggle, setToggle] = useState(true);
@@ -21,9 +22,6 @@ export default function DashboardLayout({ children }) {
   const { data: session, status } = useSession();
   const { role = "", isLoading = false } = useRole();
   const router = useRouter();
-  console.log(role, "this is role");
-  //   console.log(role, isLoading)
-  // Sidebar Responsive Handler
   const handleToggle = () => {
     setActive(!isActive);
   };
@@ -38,6 +36,9 @@ export default function DashboardLayout({ children }) {
       setUserLoading(true);
     }
   }, [session?.data?.user, userLoading]);
+  if (isLoading) {
+    return <LoadingSpinner></LoadingSpinner>
+  }
   return (
     <div className="container mx-auto ">
       {/* Small Screen Navbar */}
