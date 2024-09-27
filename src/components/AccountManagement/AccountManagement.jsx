@@ -1,4 +1,5 @@
 import React from 'react';
+import { UpdateUserModal } from '../UpdateUserModal/UpdateUserModal';
 
 const AccountManagement = () => {
 
