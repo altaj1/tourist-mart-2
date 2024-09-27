@@ -26,7 +26,6 @@ const AdminMenu = () => {
       }
     return (
         <>
-        this is admin menu
             <MenuItem icon={FaUserCog} label='Manage Users' address='/dashboard/manage-users' />
             {/* <MenuItem icon={BsFillMotherboardFill} label='Manage Contests' address='ManageContest' /> */}
         </>

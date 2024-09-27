@@ -15,6 +15,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import MenuItem from "@/components/Menu/MenuItem";
 import LoadingSpinner from "@/components/shared/LoadingSpinner";
+import UserMenu from "@/components/Menu/UserMenu";
 export default function DashboardLayout({ children }) {
   const [isActive, setActive] = useState(false);
   const [toggle, setToggle] = useState(true);
@@ -74,7 +75,6 @@ export default function DashboardLayout({ children }) {
             >
             <Name></Name>
             </Link> */}
-                  {/* <h1 className="text-2xl font-bold lg:block hidden inline-block  text-transparent bg-clip-text bg-gradient-to-r from-indigo-900 from-10% via-sky-500 via-30% to-emerald-500 to-90% ...">BrainStrom</h1> */}
                 </div>
               </div>
             </div>
@@ -88,7 +88,7 @@ export default function DashboardLayout({ children }) {
                   address="/dashboard"
                   icon={MdOutlineLeaderboard}
                 />
-                {/* {role === 'User' && <UserMenu/>} */}
+                {role === 'User' && <UserMenu/>}
 
                 {role === "Agent" && <AgentMenu></AgentMenu>}
 
