@@ -4,14 +4,18 @@ import { UpdateUserModal } from '../UpdateUserModal/UpdateUserModal';
 import useGetUser from '@/lib/hooks/getDataHook/useGetUser';
 import { useSession } from 'next-auth/react';
 import LoadingSpinner from '../shared/LoadingSpinner';
+import useGetMyOrders from '@/lib/hooks/getMyOrders/useGetMyOrders';
+import OdrerCart from '../shared/OdrerCart';
 
 const AccountManagement = () => {
   const session = useSession()
+  const {allProductInfo, isLoading:loading} = useGetMyOrders()
   // console.log(session, "this is session")
 const{userData, refetch, isLoading} = useGetUser()
-if (isLoading) {
+if (isLoading && loading) {
   return <LoadingSpinner></LoadingSpinner>
 }
+console.log(allProductInfo.slice(0, 3))
   return (
     <div className=" p-8 font-[sans-serif]  mx-auto rounded-lg shadow-lg">
        <h2 className="text-2xl font-bold text-gray-700 mb-4">Manage My Account</h2>
@@ -36,7 +40,7 @@ if (isLoading) {
            {/* modal */}
            <div>
           <button
-              className="text-[#293614] font-semibold"
+              className="text-[#0000f8f0] font-semibold"
               onClick={() => document.getElementById("my_modal_3").showModal()}
             >
               Change
@@ -70,6 +74,14 @@ if (isLoading) {
      </div>
      </div>
     
+     </div>
+{/* Recent Orders */}
+     <div>
+      <h1 className='bg-[#EFF0F4] py-4 px-3 font-semibold' >Recent Orders</h1>
+
+      {
+        allProductInfo?.slice(0, 3).map((product, idx)=>(<OdrerCart product={product} key={idx}></OdrerCart>))
+      }
      </div>
     </div>
   );
