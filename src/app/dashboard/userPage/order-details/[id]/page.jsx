@@ -1,9 +1,10 @@
 "use client";
 import LoadingSpinner from "@/components/shared/LoadingSpinner";
 import useAxiosSecure from "@/lib/hooks/apiHooks/useAxiosSecure";
-import { useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery } from "@tanstack/react-query";
 import Image from "next/image";
 import React, { useState } from "react";
+import toast from "react-hot-toast";
 
 const OrderDetails = ({ params }) => {
   const axiosSecure = useAxiosSecure();
@@ -26,6 +27,18 @@ const OrderDetails = ({ params }) => {
       return data;
     },
   });
+  const {mutateAsync} = useMutation({
+    mutationFn:async (cancelled) =>{
+      const {data} = await axiosSecure.put(`/dashboard/userPage/order-details/api/${params.id}`, {cancelled})
+    },
+    onSuccess:()=>{
+      toast.success("Cancelled Order")
+      refetch()
+    }
+  })
+  const handleCancelled = ()=>{
+    mutateAsync("Cancelled")
+  }
   if (isLoading) {
     return <LoadingSpinner></LoadingSpinner>;
   }
@@ -67,7 +80,7 @@ const OrderDetails = ({ params }) => {
             }`}
           >
             <li className="py-3 px-5 hover:bg-gray-50 text-gray-800 text-sm cursor-pointer">
-              <button>Cancelled</button>
+              <button onClick={handleCancelled}>Cancelled</button>
             </li>
           </ul>
         </div>
