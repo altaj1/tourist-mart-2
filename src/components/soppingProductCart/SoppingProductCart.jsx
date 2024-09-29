@@ -31,20 +31,6 @@ const SoppingProductCart = ({ product, buyProduct, setBuyProduct,
       localStorage.setItem("product", JSON.stringify(updatedProducts));
     }
   };
-  
-    //  useEffect(()=>{
-    //       const storeSummary = localStorage.getItem('product')
-    //       if (storeSummary) {
-    //       setSummary(JSON.parse(storeSummary))
-            
-    //       }
-    //       // console.log(storeSummary)
-    //      },[buyProduct])
-        //  const match = summary.filter(s=>{
-        //   console.log(s.productCartId, product._id)
-        //   s.productCartId === product._id
-        //  })
-        //  console.log(product, summary)
   return (
     <div className="flex space-x-5 bg-[#FFFFFF] p-5 mt-3 shadow-lg">
       <input

@@ -5,7 +5,6 @@ import { useSession } from "next-auth/react";
 const useRole = () =>{
     const axiosSecure = useAxiosSecure();
     const session = useSession()
-   console.log(session)
     const {data:role = "", isLoading} = useQuery({
         queryKey:['role'],
         
@@ -15,7 +14,6 @@ const useRole = () =>{
         },
         enabled: !!session?.data?.user?.email,
     })
-    
     return {role, isLoading}
 }
 

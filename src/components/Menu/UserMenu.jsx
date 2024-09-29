@@ -4,9 +4,10 @@ import { CgFolderAdd } from "react-icons/cg";
 const UserMenu = () => {
     return (
         <div>
-               <MenuItem icon={CgFolderAdd} label='My orders' address='dashboard/supplierPage/myOrders' />
+               <MenuItem icon={CgFolderAdd} label='My orders' address='dashboard/userPage/myOrders' />
         </div>
     );
 };
 
 export default UserMenu;
+

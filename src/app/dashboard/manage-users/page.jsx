@@ -6,8 +6,7 @@ import { useQuery } from '@tanstack/react-query';
 import React from 'react';
 
 const ManageUsers = () => {
-    const axiosSecure = useAxiosSecure()
-    
+    const axiosSecure = useAxiosSecure()   
     const {data : {users} = [],  isLoading,refetch } = useQuery({
         queryKey:['contest'],
         queryFn: async () => {

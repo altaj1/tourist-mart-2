@@ -11,12 +11,10 @@ export const GET =async (requset, {params})=>{
     const db = await connectDB();
     const paymentsCollection = db.collection('payments');
     const email = params.email
-    console.log(email, "this is email")
     try {
-        const result = await paymentsCollection.find({}).toArray()
+        const result = await paymentsCollection.find({buyerEmail:email}).sort({ date: -1 }).toArray()
+        return NextResponse.json({data:result})
     } catch (error) {
         return NextResponse.json(error)
     }
-   
-    return NextResponse.json("data not found")
 }
