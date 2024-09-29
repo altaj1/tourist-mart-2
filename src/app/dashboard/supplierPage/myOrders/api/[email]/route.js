@@ -13,10 +13,10 @@ export const GET =async (requset, {params})=>{
     const email = params.email
     console.log(email, "this is email")
     try {
-        
+        const result = await paymentsCollection.find({}).toArray()
     } catch (error) {
         return NextResponse.json(error)
     }
-    console.log("bro ouch thsi is orders page")
+   
     return NextResponse.json("data not found")
 }
