@@ -27,7 +27,7 @@ const OdrerCart = ({product, }) => {
             <p>Shipping: BDT 80</p>
           </div>
           <div className="flex flex-col items-center ">
-           
+             <p className='pb-1 font-semibold'>Qut: {product?.buyProductCount}</p>
             <PreviewButton id={product?.mainProductId}></PreviewButton>
           </div>
         </div>
