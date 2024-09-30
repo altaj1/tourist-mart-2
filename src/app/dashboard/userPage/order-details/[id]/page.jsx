@@ -5,6 +5,7 @@ import { useMutation, useQuery } from "@tanstack/react-query";
 import Image from "next/image";
 import React, { useState } from "react";
 import toast from "react-hot-toast";
+import { RiDeleteBin7Line } from "react-icons/ri";
 
 const OrderDetails = ({ params }) => {
   const axiosSecure = useAxiosSecure();
@@ -13,6 +14,7 @@ const OrderDetails = ({ params }) => {
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
   };
+
   const {
     data: productInfo = {},
     isLoading,
@@ -27,6 +29,7 @@ const OrderDetails = ({ params }) => {
       return data;
     },
   });
+
   const {mutateAsync} = useMutation({
     mutationFn:async (cancelled) =>{
       const {data} = await axiosSecure.put(`/dashboard/userPage/order-details/api/${params.id}`, {cancelled})
@@ -36,9 +39,25 @@ const OrderDetails = ({ params }) => {
       refetch()
     }
   })
+  const {mutateAsync:deleteProduct} = useMutation({
+    mutationFn: async (productCartId)=>{
+      console.log(productCartId)
+      const {data} = await axiosSecure.delete(`/dashboard/userPage/order-details/api/${params.id}?productCartId=${productCartId} `)
+    },
+    onSuccess:()=>{
+      toast.success("Delete Product")
+      refetch()
+    }
+  })
   const handleCancelled = ()=>{
     mutateAsync("Cancelled")
   }
+   
+  const handleDeleteProduct =(productCartId)=>{
+deleteProduct(productCartId)
+
+  }
+
   if (isLoading) {
     return <LoadingSpinner></LoadingSpinner>;
   }
@@ -113,7 +132,7 @@ const OrderDetails = ({ params }) => {
               </div>
               <div className="flex flex-col items-center ">
                  <p className='pb-1 font-semibold'>Qut: {product?.buyProductCount}</p>
-                {/* <PreviewButton id={product?.mainProductId}></PreviewButton> */}
+               <button onClick={()=>handleDeleteProduct(product?.productCartId)} className="text-2xl"><RiDeleteBin7Line /></button>
               </div>
             </div>
           </div>
