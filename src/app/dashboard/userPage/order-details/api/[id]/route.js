@@ -47,13 +47,15 @@ export const GET =async (request, {params})=>{
     }
     const db = await connectDB();
     const paymentsCollection = db.collection('payments');
-    const data =await request.json()
-    // try {
-    //     const result = await paymentsCollection.updateOne({_id: new ObjectId(params.id)},{$set:{status :data?.cancelled}} )
-    //     return NextResponse.json({data:result})
-    // } catch (error) {
-    //     return NextResponse.json(error)
-    // }
-    console.log(productCartId, " product cart id", id, "order is")
-    return NextResponse.json("data not fount")
+    
+    try {
+
+        const result = await paymentsCollection.updateOne(
+            { _id: new ObjectId(params.id) },
+            { $pull: { productInfo: { productCartId: productCartId } } }
+          );
+        return NextResponse.json({data:result})
+    } catch (error) {
+        return NextResponse.json(error)
+    }
  }
