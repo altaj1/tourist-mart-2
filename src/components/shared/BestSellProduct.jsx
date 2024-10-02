@@ -7,7 +7,6 @@ const BestSellProduct = () => {
   const allProducts = useGetProductsData()
 
   const bestSellProduct = allProducts.slice(0, 12);
-console.log(bestSellProduct, "best sell product")
     return (
         <div className="container mx-auto px-4 py-8">
         {/* Header Section */}

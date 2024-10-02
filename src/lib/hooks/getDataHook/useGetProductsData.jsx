@@ -8,7 +8,7 @@ const useGetProductsData = () => {
     const currentPage = reduxData?.pagination?.value;
     const search = useSelector((state)=>state.search)
     const axiosCommon = useAxiosCommon()
-     console.log(search, "search")
+    
     const {data:allProduct=[], isLoading} = useQuery({
         queryKey:["get all product", search.value, currentPage],
         queryFn: async()=>{
