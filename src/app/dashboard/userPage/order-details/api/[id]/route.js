@@ -38,7 +38,6 @@ export const GET =async (request, {params})=>{
  
  export const DELETE =async (request, {params})=>{
     const id = params.id;
-    // const {searchParams} = new URL(request.url);
     const {searchParams} = new URL(request.url)
     const productCartId = searchParams.get("productCartId")
     const isveryfy = await  verifyUser()
