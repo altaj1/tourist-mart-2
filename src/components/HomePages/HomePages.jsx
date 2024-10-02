@@ -7,6 +7,7 @@ import { useSelector } from 'react-redux';
 import useGetProductsData from '@/lib/hooks/getDataHook/useGetProductsData';
 import ProductCard from '../shared/ProductCard';
 import BestSellProduct from '../shared/BestSellProduct';
+import Link from 'next/link';
 
 
 const HomePages = () => {
@@ -17,6 +18,9 @@ const HomePages = () => {
            <AddOffer></AddOffer>
            <SpotCategories></SpotCategories>
            <BestSellProduct></BestSellProduct>
+           <div className='text-centers mx-auto container w-[100%] mb-5'>
+            <p className='text-center font-semibold hover:shadow-lg p-10'>  <Link href={'/allProductData'}>View all</Link></p>
+           </div>
         </div>
     );
 };
