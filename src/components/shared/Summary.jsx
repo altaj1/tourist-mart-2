@@ -10,7 +10,6 @@ const Summary = ({ summary=[], isLoading= "" }) => {
   );
   const isDisabled = summary.length === 0;
   const productIds = summary.map(pd => pd.mainProductId)
-  // console.log( productIds)
   if (isLoading) {
     return <LoadingSpinner></LoadingSpinner>
   }
