@@ -6,6 +6,7 @@ import React from 'react';
 
 const Allproducts = () => {
     const allProducts = useGetProductsData()
+    // console.log(allProducts)
     return (
        
         <div className='container mx-auto'>
