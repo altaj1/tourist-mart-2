@@ -1,40 +1,10 @@
 // components/AboutUs.jsx
+import { statistics } from "@/components/HomePages/utilits";
 import Services from "@/components/Services/Services";
 import Image from "next/image";
 import React from "react";
-import { FcOnlineSupport } from "react-icons/fc";
-import { GiBoxUnpacking } from "react-icons/gi";
-import { RiSecurePaymentLine } from "react-icons/ri";
 const AboutUs = () => {
-  const statistics = [
-    {
-      title: 'Product Packing',
-      icone: GiBoxUnpacking,
-      description:
-        'Eco-friendly packaging ensures products arrive safely and sustainably.',
-      value: '1,200',
-      gradientFrom: 'blue-500',
-      gradientTo: 'indigo-500',
-    },
-    {
-      title: '24x7 Support',
-      icone: FcOnlineSupport,
-      description:
-        'Our team is available round-the-clock to assist you with any queries.',
-      value: '$50,000',
-      gradientFrom: 'green-500',
-      gradientTo: 'teal-500',
-    },
-    {
-      title: 'Secure Payment',
-      description:
-        'Your transactions are protected with advanced security encryption.',
-      value: '5',
-      icone:RiSecurePaymentLine,
-      gradientFrom: 'yellow-500',
-      gradientTo: 'orange-500',
-    },
-  ];
+
   return (
     <section className="py-12 container mx-auto">
       <div className=" mx-auto px-6">

@@ -1,3 +1,4 @@
+'use client'
 import useGetProductsData from '@/lib/hooks/getDataHook/useGetProductsData';
 import React from 'react';
 import ProductCard from './ProductCard';

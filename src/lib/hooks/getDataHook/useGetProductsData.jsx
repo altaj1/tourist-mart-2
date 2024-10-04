@@ -1,3 +1,4 @@
+'use client'
 import React from 'react';
 import useAxiosCommon from '../apiHooks/useAxiosCommon';
 import { useQuery } from '@tanstack/react-query';
