@@ -11,6 +11,7 @@ import { useDispatch } from "react-redux";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
+import useGetProductDetails from "@/lib/hooks/getDataHook/useGetProductDetails";
 const Page = ({ params }) => {
   const [buyProductCount, setBuyProductCount] = useState(1);
   const [localStorageProduct, setLocalStorageProduct] = useState([]);
@@ -19,20 +20,19 @@ const Page = ({ params }) => {
   const axiosSecure = useAxiosSecure();
   const dispatch = useDispatch();
   const [userLoading, setUserLoading] = useState(true);
-
+  const {productDetails, isLoading} = useGetProductDetails(params.id)
   const router = useRouter();
-  
   const handleAddToCart = (id) => {
     dispatch(productId(id));
   };
 
-  const { data: productDetails = {}, isLoading } = useQuery({
-    queryKey: ["detailsProduct"],
-    queryFn: async () => {
-      const { data } = await axiosSecure(`/product-details/api/${params.id}`);
-      return data?.data;
-    },
-  });
+  // const { data: productDetails = {}, isLoading } = useQuery({
+  //   queryKey: ["detailsProduct"],
+  //   queryFn: async () => {
+  //     const { data } = await axiosSecure(`/product-details/api/${params.id}`);
+  //     return data?.data;
+  //   },
+  // });
 
   const {
     SpotName,

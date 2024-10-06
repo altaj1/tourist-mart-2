@@ -1,9 +1,22 @@
+"use client"
+import useAxiosSecure from "@/lib/hooks/apiHooks/useAxiosSecure";
+import useGetProductDetails from "@/lib/hooks/getDataHook/useGetProductDetails";
+import { useQuery } from "@tanstack/react-query";
 const UpdateProductModal = ({productId}) => {
-    if (!productId) {
-        return null; // or a loading spinner
-    }
-    console.log(productId, "produc update modal")
-
+  // const {productDetails, isLoading} = useGetProductDetails(productId);
+  // console.log(productDetails, "or a use get prduct details")
+  //   if (!productId) {
+  //       return null; // or a loading spinner
+  //   }
+    const axiosSecure = useAxiosSecure();
+    const { data: productDetails = {}, isLoading } = useQuery({
+        queryKey: ["detailsProduct", productId],
+        queryFn: async () => {
+          const { data } = await axiosSecure(`/product-details/api/${productId}`);
+          return data?.data;
+        },
+      });
+    console.log(productDetails, "or a use get prduct details")
     return (
         <dialog id="my_modal_update_product" className="modal">
         <div className="modal-box">
@@ -11,7 +24,7 @@ const UpdateProductModal = ({productId}) => {
             {/* if there is a button in form, it will close the modal */}
             <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
           </form>
-          <h3 className="font-bold text-lg">{productId}</h3>
+          <h3 className="font-bold text-lg">{productDetails.name}</h3>
           <p className="py-4">Press ESC key or click on ✕ button to close</p>
         </div>
       </dialog>

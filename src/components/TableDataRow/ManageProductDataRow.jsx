@@ -5,9 +5,11 @@ import UpdateProductModal from "../Modal/UpdateProductModal";
 
 const ManageProductData = ({ product }) => {
   const [selectedProductID, setSelectedProductID] = useState("");
-  const handleEditClick = (ID) => {
+  const handleEditClick = (id) => {
      // Pass the current product to the modal
-     setSelectedProductID(ID);
+     setSelectedProductID("")
+     console.log(id, "Pass the current product to the modal")
+     setSelectedProductID(id);
   };
   const {
     quantity,
@@ -18,10 +20,10 @@ const ManageProductData = ({ product }) => {
   } = product;
   useEffect(() => {
     if (selectedProductID) {
-      const modal = document.getElementById("my_modal_update_product");
-      if (modal) {
-        modal.showModal();
-      }
+      const modal = document.getElementById("my_modal_update_product").showModal();
+      // if (modal) {
+      //   modal.showModal();
+      // }
     }
   }, [selectedProductID]); 
   return (
