@@ -1,21 +1,29 @@
 "use client"
-import { useState } from "react";
+import { useState,  useEffect } from "react";
 import Image from "next/image";
 import UpdateProductModal from "../Modal/UpdateProductModal";
 
 const ManageProductData = ({ product }) => {
-  const [selectedProduct, setSelectedProduct] = useState(null);
-  const handleEditClick = (pd) => {
+  const [selectedProductID, setSelectedProductID] = useState("");
+  const handleEditClick = (ID) => {
      // Pass the current product to the modal
-    document.getElementById("my_modal_update_product").showModal(); // Open modal
-    setSelectedProduct(pd);
+     setSelectedProductID(ID);
   };
   const {
     quantity,
     bracode,
     name,
     coverImage,
+    _id
   } = product;
+  useEffect(() => {
+    if (selectedProductID) {
+      const modal = document.getElementById("my_modal_update_product");
+      if (modal) {
+        modal.showModal();
+      }
+    }
+  }, [selectedProductID]); 
   return (
     <tr>
       <td className="px-4 py-4 text-sm text-gray-800">
@@ -30,8 +38,8 @@ const ManageProductData = ({ product }) => {
       <td className="px-4 py-4 text-sm text-gray-800">{quantity}</td>
       <td className="px-4 py-4 text-sm text-gray-800">{bracode}</td>
       <td className="px-4 py-4 text-sm text-gray-800">
-        <button  onClick={()=>handleEditClick(name)} className="text-blue-600 mr-4">Edit</button>
-        <UpdateProductModal product={selectedProduct}></UpdateProductModal>
+        <button  onClick={()=>handleEditClick(_id)} className="text-blue-600 mr-4">Edit</button>
+        <UpdateProductModal productId={selectedProductID}></UpdateProductModal>
         <button className="text-red-600">Delete</button>
       </td>
      
