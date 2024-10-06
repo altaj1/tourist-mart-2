@@ -9,8 +9,7 @@ const AgentMenu = () => {
   
     return (
         <>
-        this is admin menu
-            <MenuItem icon={AiOutlineProduct} label='Add Product' address='agent/add-product' />
+            <MenuItem icon={AiOutlineProduct} label='Add Product' address='/dashboard/agent/add-product' />
             {/* <MenuItem icon={BsFillMotherboardFill} label='Manage Contests' address='ManageContest' /> */}
         </>
     );

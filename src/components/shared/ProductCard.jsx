@@ -19,6 +19,7 @@ const ProductCard = ({ product }) => {
     discount,
     BrandName,
     sold,
+    sellCount,
     ratings,
   } = product;
   const handleAddToCart =(id)=>{
@@ -81,7 +82,7 @@ const ProductCard = ({ product }) => {
                 className="mask mask-star-2 bg-orange-400"
               />
             </div>
-            <p className="text-sm font-">{sold ? sold : "78+"}sold</p>
+            <p className="text-sm font-">{sellCount ? `${sellCount}+` : "28+"}sold</p>
           </div>
           <p className="">
             <span className="text-xl font-medium">

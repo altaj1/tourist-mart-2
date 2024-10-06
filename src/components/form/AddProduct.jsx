@@ -78,7 +78,7 @@ const AddProduct = () => {
   }
   const {mutateAsync} = useMutation({
     mutationFn:async productData =>{
-      const {data} = await axiosSecure.post(`/agent/api/manage-product`, productData)
+      const {data} = await axiosSecure.post(`/dashboard/agent/api/manage-product`, productData)
       return data;
     },
     onSuccess:()=>{
