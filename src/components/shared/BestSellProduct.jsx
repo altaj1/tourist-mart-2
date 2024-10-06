@@ -2,12 +2,16 @@
 import useGetProductsData from '@/lib/hooks/getDataHook/useGetProductsData';
 import React from 'react';
 import ProductCard from './ProductCard';
+import LoadingSpinner from './LoadingSpinner';
 
 const BestSellProduct = () => {
     
-  const allProducts = useGetProductsData()
+  const {allProducts, isLoading} = useGetProductsData()
 
   const bestSellProduct = allProducts.slice(0, 12);
+  if (isLoading) {
+    return <LoadingSpinner></LoadingSpinner>
+  }
     return (
         <div className="container mx-auto px-4 py-8">
         

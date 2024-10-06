@@ -10,7 +10,7 @@ const useGetProductsData = () => {
     const search = useSelector((state)=>state.search)
     const axiosCommon = useAxiosCommon()
     
-    const {data:allProduct=[], isLoading} = useQuery({
+    const {data:allProducts=[], isLoading} = useQuery({
         queryKey:["get all product", search.value, currentPage],
         queryFn: async()=>{
             const {data} = await axiosCommon.get(`/allProductData/api/?searchText=${search.value}&page=${currentPage}`)
@@ -18,7 +18,7 @@ const useGetProductsData = () => {
             return data
         }
     })
-    return allProduct;
+    return {allProducts, isLoading};
 };
 
 export default useGetProductsData;

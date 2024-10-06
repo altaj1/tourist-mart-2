@@ -91,7 +91,7 @@ const Page = ({ params }) => {
        <Image
           height={300}
           width={400}
-          className="w-full lg:h-[500px] xl:h-[500px] md:h-[500px] rounded-md duration-500"
+          className="w-full lg:h-[500px] xl:h-[500px] md:h-[500px] rounded-md duration-500 bg-cover"
           src={selectedImage || coverImage} // Display selected or default cover image
           alt="Cover Image"
         />

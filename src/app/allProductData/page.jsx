@@ -1,12 +1,15 @@
 "use client"
+import LoadingSpinner from '@/components/shared/LoadingSpinner';
 import Paginatio from '@/components/shared/Paginatio';
 import ProductCard from '@/components/shared/ProductCard';
 import useGetProductsData from '@/lib/hooks/getDataHook/useGetProductsData';
 import React from 'react';
 
 const Allproducts = () => {
-    const allProducts = useGetProductsData()
-    // console.log(allProducts)
+    const{ allProducts, isLoading} = useGetProductsData()
+    if (isLoading) {
+      return <LoadingSpinner></LoadingSpinner>
+    }
     return (
        
         <div className='container mx-auto'>

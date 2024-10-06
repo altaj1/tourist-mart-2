@@ -37,7 +37,7 @@ const ProductCard = ({ product }) => {
           width={500} // Use `spot.photo.width` here
           height={400} // Use `spot.photo.height` here
           priority
-          className="h-60 w-full rounded-b-xl"
+          className="h-60 w-full rounded-b-xl bg-cover"
         />
       </figure>
       <div className="flex  gap-1 mt-1 font-medium">
