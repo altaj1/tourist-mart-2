@@ -4,7 +4,7 @@ import useGetProductDetails from "@/lib/hooks/getDataHook/useGetProductDetails";
 import { useQuery } from "@tanstack/react-query";
 const UpdateProductModal = ({productId}) => {
   // const {productDetails, isLoading} = useGetProductDetails(productId);
-  // console.log(productDetails, "or a use get prduct details")
+ 
   //   if (!productId) {
   //       return null; // or a loading spinner
   //   }
