@@ -8,6 +8,7 @@ const UpdateProductModal = ({productId}) => {
   //   if (!productId) {
   //       return null; // or a loading spinner
   //   }
+  // console.log(productId)
     const axiosSecure = useAxiosSecure();
     const { data: productDetails = {}, isLoading } = useQuery({
         queryKey: ["detailsProduct", productId],
